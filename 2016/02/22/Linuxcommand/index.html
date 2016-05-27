@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="第一章  简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+  <meta name="description" content="pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
 cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
 
 
@@ -205,158 +205,7 @@ cp  -复制文件与目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;有两种�
 
 
 mv -移动/重命名文件和目录rm -删除文件和目录mkdir -创建目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;mkdir是用来创建目录的，它这样工作：mkdir directory…。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.
-ln -创建硬链接和符号链接第二章 Linux中不能不知道的概念1. 相对路径与绝对路径&amp;#160; &amp;#160; &amp;#160; &amp;#160;绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。”.”指的是工作目录，“..”指的是工作目录的父目录
-2. 文件名的重要规则&amp;#160; &amp;#160; &amp;#160; &amp;#160;1) 以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。&amp;#160; &amp;#160; &amp;#160; &amp;#160;2) 文件名和命令名是大小写敏感的。文件名File和file是指两个不同的文件。&amp;#160; &amp;#160; &amp;#160; &amp;#160;3) Linux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。&amp;#160; &amp;#160; &amp;#160; &amp;#160;4) Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下&amp;#160; &amp;#160; &amp;#160; &amp;#160; &amp;#160; &amp;#160; 划线。最好不要在文件名中使用空格。
-3. 选项和参数&amp;#160; &amp;#160; &amp;#160; &amp;#160;命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：选一个文件，来看一下各个输出字段的含义：
-
-
-
-字段
-含义
-
-
-
-
-drwxrwxrwx+
-对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限
-
-
-34
-文件的硬链接数目
-
-
-macbookpro
-文件属主的用户名
-
-
-ftgroup
-文件所属用户组的名字
-
-
-1156
-以字节数表示文件的大小
-
-
-2 26 16:46
-上次修改文件的时间与日期
-
-
-Downloader
-文件名
-
-
-
-4. 符号链接&amp;#160; &amp;#160; &amp;#160; &amp;#160;在我们到处查看时，我们会看到一个目录，列出这样一条信息：&amp;#160; &amp;#160; &amp;#160; &amp;#160;这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩&amp;#160; &amp;#160; &amp;#160; &amp;#160;还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。
-5. 通配符&amp;#160; &amp;#160; &amp;#160; &amp;#160;一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：
-
-
-
-通配符
-意义
-
-
-
-
-*
-匹配任意多个字符(包括零个或一个)
-
-
-？
-匹配任意一个字符(不包括零个)
-
-
-[characters]
-匹配任意一个属于字符集中的字符
-
-
-[!characters]
-匹配任意一个不是字符集中的字符
-
-
-[:class:]
-匹配任意一个不属于指定字符类中的字符
-
-
-
-&amp;#160; &amp;#160; &amp;#160; &amp;#160;下表列出最常使用的字符类:
-
-
-
-字符类
-意义
-
-
-
-
-[:alnum:]
-匹配任意一个字母或数字
-
-
-[:alpha]
-匹配任意一个字母
-
-
-[:digit:]
-匹配任意一个数字
-
-
-[:lower:]
-匹配任意一个小写字母
-
-
-[:upper:]
-匹配任意一个大写字母
-
-
-
-&amp;#160; &amp;#160; &amp;#160; &amp;#160;借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:
-
-
-
-模式
-匹配对象
-
-
-
-
-*
-所有文件
-
-
-g*
-文件名以“g”开头的文件
-
-
-b*.txt
-以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件
-
-
-Data???
-以“Data开头”，其后紧接着3个字符的文件
-
-
-[abc]*
-文件名以“a”，“b”，或“c”开头的文件
-
-
-BACKUP.[0-9][0-9][0-9]
-以“BACkUP.”开头，并紧接着3个数字的文件
-
-
-[[:upper:]]*
-以大写字母开头的文件
-
-
-[![:digit:]]*
-不以数字开头的文件
-
-
-*[[:lower:]123]
-文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件
-
-
-
-无序列表
+ln -创建硬链接和符号链接无序列表
 2
 3
 1
@@ -390,27 +239,40 @@ $12" />
   
   
   
-  <title>快乐的Linux命令行 | 行动的力量</title>
+  <title>第一章  简单命令的使用 | 行动的力量</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章  简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
-cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路">
+  <meta name="description" content="pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
+
+
+
+参数
+运行结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快乐的Linux命令行">
+<meta property="og:title" content="第一章  简单命令的使用">
 <meta property="og:url" content="http://yoursite.com/2016/02/22/Linuxcommand/index.html">
 <meta property="og:site_name" content="行动的力量">
-<meta property="og:description" content="第一章  简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
-cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路">
+<meta property="og:description" content="pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
+
+
+
+参数
+运行结">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/1.png">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/2.png">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/4.png">
-<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/3.png">
-<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/5.png">
 <meta property="og:image" content="http://mouapp.com/Mou_128.png">
-<meta property="og:updated_time" content="2016-05-27T03:53:04.000Z">
+<meta property="og:updated_time" content="2016-05-27T09:48:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快乐的Linux命令行">
-<meta name="twitter:description" content="第一章  简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
-cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路">
+<meta name="twitter:title" content="第一章  简单命令的使用">
+<meta name="twitter:description" content="pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
+
+
+
+参数
+运行结">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -441,9 +303,13 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
             <div class="menu-main-container">
                 <ul id="menu-main" class="nav-menu">
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">技术</a></li>
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/article">文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/movie">电影</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/music">音乐</a></li>
                 
                 </ul>
             </div>
@@ -458,20 +324,20 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
         
   
     <h1 class="entry-title article-title">
-      快乐的Linux命令行
+      第一章  简单命令的使用
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="ciop71rrs00006vzq7nih1y6m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="ciopjxynq0000ntzqst71hyym" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1 id="第一章-简单命令的使用"><a href="#第一章-简单命令的使用" class="headerlink" title="第一章  简单命令的使用"></a>第一章  简单命令的使用</h1><h2 id="pwd-－打印出当前工作目录名"><a href="#pwd-－打印出当前工作目录名" class="headerlink" title="pwd －打印出当前工作目录名"></a>pwd －打印出当前工作目录名</h2><p>&#160; &#160; &#160; &#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。<br><br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/1.png" alt="img1"></p>
+        <h2 id="pwd-－打印出当前工作目录名"><a href="#pwd-－打印出当前工作目录名" class="headerlink" title="pwd －打印出当前工作目录名"></a>pwd －打印出当前工作目录名</h2><p>&#160; &#160; &#160; &#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。<br><br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/1.png" alt="img1"></p>
 <h2 id="cd-－更改目录"><a href="#cd-－更改目录" class="headerlink" title="cd －更改目录"></a>cd －更改目录</h2><p>&#160; &#160; &#160; &#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。</p>
 <table>
 <thead>
@@ -672,158 +538,7 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
 </tbody>
 </table>
 <h2 id="mv-移动-重命名文件和目录"><a href="#mv-移动-重命名文件和目录" class="headerlink" title="mv -移动/重命名文件和目录"></a>mv -移动/重命名文件和目录</h2><h2 id="rm-删除文件和目录"><a href="#rm-删除文件和目录" class="headerlink" title="rm -删除文件和目录"></a>rm -删除文件和目录</h2><h2 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir -创建目录"></a>mkdir -创建目录</h2><p>&#160; &#160; &#160; &#160;mkdir是用来创建目录的，它这样工作：mkdir directory…。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.</p>
-<h2 id="ln-创建硬链接和符号链接"><a href="#ln-创建硬链接和符号链接" class="headerlink" title="ln -创建硬链接和符号链接"></a>ln -创建硬链接和符号链接</h2><h1 id="第二章-Linux中不能不知道的概念"><a href="#第二章-Linux中不能不知道的概念" class="headerlink" title="第二章 Linux中不能不知道的概念"></a>第二章 Linux中不能不知道的概念</h1><h2 id="1-相对路径与绝对路径"><a href="#1-相对路径与绝对路径" class="headerlink" title="1. 相对路径与绝对路径"></a>1. 相对路径与绝对路径</h2><p>&#160; &#160; &#160; &#160;绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。”.”指的是工作目录，“..”指的是工作目录的父目录</p>
-<h2 id="2-文件名的重要规则"><a href="#2-文件名的重要规则" class="headerlink" title="2. 文件名的重要规则"></a>2. 文件名的重要规则</h2><p>&#160; &#160; &#160; &#160;1) 以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。<br>&#160; &#160; &#160; &#160;2) 文件名和命令名是大小写敏感的。文件名File和file是指两个不同的文件。<br>&#160; &#160; &#160; &#160;3) Linux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。<br>&#160; &#160; &#160; &#160;4) Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下&#160; &#160; &#160; &#160; &#160; &#160; 划线。最好不要在文件名中使用空格。</p>
-<h2 id="3-选项和参数"><a href="#3-选项和参数" class="headerlink" title="3. 选项和参数"></a>3. 选项和参数</h2><p>&#160; &#160; &#160; &#160;命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/3.png" alt="img3"><br>选一个文件，来看一下各个输出字段的含义：</p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>drwxrwxrwx+</td>
-<td style="text-align:left">对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限</td>
-</tr>
-<tr>
-<td>34</td>
-<td style="text-align:left">文件的硬链接数目</td>
-</tr>
-<tr>
-<td>macbookpro</td>
-<td style="text-align:left">文件属主的用户名</td>
-</tr>
-<tr>
-<td>ftgroup</td>
-<td style="text-align:left">文件所属用户组的名字</td>
-</tr>
-<tr>
-<td>1156</td>
-<td style="text-align:left">以字节数表示文件的大小</td>
-</tr>
-<tr>
-<td>2 26 16:46</td>
-<td style="text-align:left">上次修改文件的时间与日期</td>
-</tr>
-<tr>
-<td>Downloader</td>
-<td style="text-align:left">文件名</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-符号链接"><a href="#4-符号链接" class="headerlink" title="4. 符号链接"></a>4. 符号链接</h2><p>&#160; &#160; &#160; &#160;在我们到处查看时，我们会看到一个目录，列出这样一条信息：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/5.png" alt="img5"><br>&#160; &#160; &#160; &#160;这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。<br>􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩&#160; &#160; &#160; &#160;还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。</p>
-<h2 id="5-通配符"><a href="#5-通配符" class="headerlink" title="5. 通配符"></a>5. 通配符</h2><p>&#160; &#160; &#160; &#160;一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：</p>
-<table>
-<thead>
-<tr>
-<th>通配符</th>
-<th style="text-align:left">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td style="text-align:left">匹配任意多个字符(包括零个或一个)</td>
-</tr>
-<tr>
-<td>？</td>
-<td style="text-align:left">匹配任意一个字符(不包括零个)</td>
-</tr>
-<tr>
-<td>[characters]</td>
-<td style="text-align:left">匹配任意一个属于字符集中的字符</td>
-</tr>
-<tr>
-<td>[!characters]</td>
-<td style="text-align:left">匹配任意一个不是字符集中的字符</td>
-</tr>
-<tr>
-<td>[:class:]</td>
-<td style="text-align:left">匹配任意一个不属于指定字符类中的字符</td>
-</tr>
-</tbody>
-</table>
-<p>&#160; &#160; &#160; &#160;<br>下表列出最常使用的字符类:</p>
-<table>
-<thead>
-<tr>
-<th>字符类</th>
-<th style="text-align:left">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[:alnum:]</td>
-<td style="text-align:left">匹配任意一个字母或数字</td>
-</tr>
-<tr>
-<td>[:alpha]</td>
-<td style="text-align:left">匹配任意一个字母</td>
-</tr>
-<tr>
-<td>[:digit:]</td>
-<td style="text-align:left">匹配任意一个数字</td>
-</tr>
-<tr>
-<td>[:lower:]</td>
-<td style="text-align:left">匹配任意一个小写字母</td>
-</tr>
-<tr>
-<td>[:upper:]</td>
-<td style="text-align:left">匹配任意一个大写字母</td>
-</tr>
-</tbody>
-</table>
-<p>&#160; &#160; &#160; &#160;<br>借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:</p>
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th style="text-align:left">匹配对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td style="text-align:left">所有文件</td>
-</tr>
-<tr>
-<td>g*</td>
-<td style="text-align:left">文件名以“g”开头的文件</td>
-</tr>
-<tr>
-<td>b*.txt</td>
-<td style="text-align:left">以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件</td>
-</tr>
-<tr>
-<td>Data???</td>
-<td style="text-align:left">以“Data开头”，其后紧接着3个字符的文件</td>
-</tr>
-<tr>
-<td>[abc]*</td>
-<td style="text-align:left">文件名以“a”，“b”，或“c”开头的文件</td>
-</tr>
-<tr>
-<td>BACKUP.[0-9][0-9][0-9]</td>
-<td style="text-align:left">以“BACkUP.”开头，并紧接着3个数字的文件</td>
-</tr>
-<tr>
-<td>[[:upper:]]*</td>
-<td style="text-align:left">以大写字母开头的文件</td>
-</tr>
-<tr>
-<td>[![:digit:]]*</td>
-<td style="text-align:left">不以数字开头的文件</td>
-</tr>
-<tr>
-<td>*[[:lower:]123]</td>
-<td style="text-align:left">文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件</td>
-</tr>
-</tbody>
-</table>
-<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><ul>
+<h2 id="ln-创建硬链接和符号链接"><a href="#ln-创建硬链接和符号链接" class="headerlink" title="ln -创建硬链接和符号链接"></a>ln -创建硬链接和符号链接</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><ul>
 <li>2</li>
 <li>3</li>
 <li>1</li>
@@ -868,7 +583,15 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
     </time>
 </a>
     
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/Linux/">快乐的Linux命令行</a>
+  </div>
+
     
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
     </footer>
 </article>
 
@@ -877,8 +600,8 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/2016/05/27/Linuxcommand2/" rel="prev"><span class="meta-nav">←</span> 第二章 Linux中不能不知道的概念</a></span>
     
-        <span class="nav-next"><a href="/2016/02/22/hello-world/" rel="next">Hello World <span class="meta-nav">→</span></a></span>
     
 </nav><!-- .nav-single -->
 
@@ -899,31 +622,22 @@ cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿�
 </form></aside>
   
     
-  
-    
-  
-    
   <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2016/02/22/Linuxcommand/">快乐的Linux命令行</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/22/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
     </div>
   </aside>
 
   
     
-  
-    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a>
+    </div>
+  </aside>
+
   
 </div>
       </div>
