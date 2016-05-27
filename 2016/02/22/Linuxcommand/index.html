@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="第一章  一些简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
+
+
+
+参数
+运行结果
+
+
+
+
+cd
+更改工作目录到主目录
+
+
+cd ..
+更改工作目录到工作目录父目录
+
+
+cd -
+更改工作目录到先前的工作目录
+
+
+cd ~user_name
+更改工作目录到用户主目录
+
+
+
+ls －列出目录内容&amp;#160; &amp;#160; &amp;#160; &amp;#160;ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。
+
+
+
+参数
+长选项
+描述
+
+
+
+
+-a
+–all
+列出所以文件，包括圆点开头的隐藏文件
+
+
+-d
+–directory
+与-l结合使用，可以看到指定目录的详细信息
+
+
+-F
+–classify
+会在每个选项的名字后面加上一个指示符，比如名字是目录名就会加上“/”字符
+
+
+-l
+
+以长格式显示结果
+
+
+-r
+–reserve
+以相反的顺序来显示结果
+
+
+-S
+
+命令输出结果按照文件大小来排序
+
+
+-t
+
+按照修改时间来排序
+
+
+
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;而“-l“选项”导致ls的输出结果以长格式输出，这种格式包含大量的有用信息。例如：
+less filename 浏览filename文本文件内容&amp;#160; &amp;#160; &amp;#160; &amp;#160;输入less /etc/passwd,一旦less程序运行起来，我就能浏览文件内容了。按下“q”键，退出less程序。下表列出了less程序最常使用的键盘命令：
+
+
+
+命令
+行为
+
+
+
+
+Page UP or b
+向后翻滚一页
+
+
+Page Down or space
+向前翻滚一页
+
+
+UP Arrow
+向前移动一行
+
+
+Dwon Arrow
+向后移动一行
+
+
+G
+移动到最后一行
+
+
+1G or g
+移动到开头一行
+
+
+/charaters
+向前查找指定的字符串
+
+
+n
+向前查找下一个出现的字符串，这个字符串是之前所指定查找的
+
+
+h
+显示帮助屏幕
+
+
+q
+退出less程序
+
+
+
+cp  -复制文件与目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;有两种使用方法，复制单个目录或文件到指定目录下，复制多个项目(文件或目录)到指定目录下。下表为cp命令的一些有用选项:
+
+
+
+参数
+长选项
+描述
+
+
+
+
+-a
+–archive
+复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作文件的默认属性
+
+
+-i
+–interactive
+在重写以存在文件之前，提示用户确认。如果这个选项不指定，cp命令默认重写文件
+
+
+-r
+–recursive
+递归的复制目录及目录中的内容。当复制目录时需要这个选项(或者-a选项)
+
+
+-u
+–update
+当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文件，或者是文件内容更新于目标目录中以存在的文件
+
+
+-v
+–verbose
+显示翔实的命令作信息
+
+
+
+
+
+
+参数
+长选项
+描述
+
+
+
+
+-a
+–archive
+复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作文件的默认属性
+
+
+-i
+–interactive
+在重写以存在文件之前，提示用户确认。如果这个选项不指定，cp命令默认重写文件
+
+
+-r
+–recursive
+递归的复制目录及目录中的内容。当复制目录时需要这个选项(或者-a选项)
+
+
+-u
+–update
+当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文件，或者是文件内容更新于目标目录中以存在的文件
+
+
+-v
+–verbose
+显示翔实的命令作信息
+
+
+
+mv -移动/重命名文件和目录rm -删除文件和目录mkdir -创建目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;mkdir是用来创建目录的，它这样工作：mkdir directory…。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.
+ln -创建硬链接和符号链接第二章 Linux中不能不知道的概念1. 相对路径与绝对路径&amp;#160; &amp;#160; &amp;#160; &amp;#160;绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。”.”指的是工作目录，“..”指的是工作目录的父目录
+2. 文件名的重要规则&amp;#160; &amp;#160; &amp;#160; &amp;#160;1) 以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。&amp;#160; &amp;#160; &amp;#160; &amp;#160;2) 文件名和命令名是大小写敏感的。文件名File和file是指两个不同的文件。&amp;#160; &amp;#160; &amp;#160; &amp;#160;3) Linux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。&amp;#160; &amp;#160; &amp;#160; &amp;#160;4) Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下&amp;#160; &amp;#160; &amp;#160; &amp;#160; &amp;#160; &amp;#160; 划线。最好不要在文件名中使用空格。
+3. 选项和参数&amp;#160; &amp;#160; &amp;#160; &amp;#160;命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：选一个文件，来看一下各个输出字段的含义：
+
+
+
+字段
+含义
+
+
+
+
+drwxrwxrwx+
+对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限
+
+
+34
+文件的硬链接数目
+
+
+macbookpro
+文件属主的用户名
+
+
+ftgroup
+文件所属用户组的名字
+
+
+1156
+以字节数表示文件的大小
+
+
+2 26 16:46
+上次修改文件的时间与日期
+
+
+Downloader
+文件名
+
+
+
+4. 符号链接&amp;#160; &amp;#160; &amp;#160; &amp;#160;在我们到处查看时，我们会看到一个目录，列出这样一条信息：&amp;#160; &amp;#160; &amp;#160; &amp;#160;这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩&amp;#160; &amp;#160; &amp;#160; &amp;#160;还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。
+5. 通配符&amp;#160; &amp;#160; &amp;#160; &amp;#160;一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：
+
+
+
+通配符
+意义
+
+
+
+
+*
+匹配任意多个字符(包括零个或一个)
+
+
+？
+匹配任意一个字符(不包括零个)
+
+
+[characters]
+匹配任意一个属于字符集中的字符
+
+
+[!characters]
+匹配任意一个不是字符集中的字符
+
+
+[:class:]
+匹配任意一个不属于指定字符类中的字符
+
+
+
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;下表列出最常使用的字符类:
+
+
+
+字符类
+意义
+
+
+
+
+[:alnum:]
+匹配任意一个字母或数字
+
+
+[:alpha]
+匹配任意一个字母
+
+
+[:digit:]
+匹配任意一个数字
+
+
+[:lower:]
+匹配任意一个小写字母
+
+
+[:upper:]
+匹配任意一个大写字母
+
+
+
+&amp;#160; &amp;#160; &amp;#160; &amp;#160;借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:
+
+
+
+模式
+匹配对象
+
+
+
+
+*
+所有文件
+
+
+g*
+文件名以“g”开头的文件
+
+
+b*.txt
+以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件
+
+
+Data???
+以“Data开头”，其后紧接着3个字符的文件
+
+
+[abc]*
+文件名以“a”，“b”，或“c”开头的文件
+
+
+BACKUP.[0-9][0-9][0-9]
+以“BACkUP.”开头，并紧接着3个数字的文件
+
+
+[[:upper:]]*
+以大写字母开头的文件
+
+
+[![:digit:]]*
+不以数字开头的文件
+
+
+*[[:lower:]123]
+文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件
+
+
+
+无序列表
+2
+3
+1
+
+
+有序列表
+这是第一
+这是第二
+这是第三
+
+插入链接百度一下 马上知道baidu
+插入图片
+
+
+
+Tables
+Are
+Cool
+
+
+
+
+col 3 is
+agent dsa  dsa
+$12" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>快乐的Linux命令行 | 行动的力量</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章  一些简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快乐的Linux命令行">
+<meta property="og:url" content="http://yoursite.com/2016/02/22/Linuxcommand/index.html">
+<meta property="og:site_name" content="行动的力量">
+<meta property="og:description" content="第一章  一些简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/1.png">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/2.png">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/4.png">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/3.png">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/5.png">
+<meta property="og:image" content="http://mouapp.com/Mou_128.png">
+<meta property="og:updated_time" content="2016-03-29T03:19:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快乐的Linux命令行">
+<meta name="twitter:description" content="第一章  一些简单命令的使用pwd －打印出当前工作目录名&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+cd －更改目录&amp;#160; &amp;#160; &amp;#160; &amp;#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="行动的力量" rel="home">行动的力量</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Linuxcommand" class="post-Linuxcommand post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      快乐的Linux命令行
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="ciop61wvk00004yzqvxv40yc7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="第一章-一些简单命令的使用"><a href="#第一章-一些简单命令的使用" class="headerlink" title="第一章  一些简单命令的使用"></a>第一章  一些简单命令的使用</h1><h2 id="pwd-－打印出当前工作目录名"><a href="#pwd-－打印出当前工作目录名" class="headerlink" title="pwd －打印出当前工作目录名"></a>pwd －打印出当前工作目录名</h2><p>&#160; &#160; &#160; &#160;我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。<br><br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/1.png" alt="img1"></p>
+<h2 id="cd-－更改目录"><a href="#cd-－更改目录" class="headerlink" title="cd －更改目录"></a>cd －更改目录</h2><p>&#160; &#160; &#160; &#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">运行结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td style="text-align:left">更改工作目录到主目录</td>
+</tr>
+<tr>
+<td>cd ..</td>
+<td style="text-align:left">更改工作目录到工作目录父目录</td>
+</tr>
+<tr>
+<td>cd -</td>
+<td style="text-align:left">更改工作目录到先前的工作目录</td>
+</tr>
+<tr>
+<td>cd ~user_name</td>
+<td style="text-align:left">更改工作目录到用户主目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ls-－列出目录内容"><a href="#ls-－列出目录内容" class="headerlink" title="ls －列出目录内容"></a>ls －列出目录内容</h2><p>&#160; &#160; &#160; &#160;ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。<br><br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/2.png" alt="img2"></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–all</td>
+<td style="text-align:left">列出所以文件，包括圆点开头的隐藏文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td style="text-align:left">–directory</td>
+<td style="text-align:left">与-l结合使用，可以看到指定目录的详细信息</td>
+</tr>
+<tr>
+<td>-F</td>
+<td style="text-align:left">–classify</td>
+<td style="text-align:left">会在每个选项的名字后面加上一个指示符，比如名字是目录名就会加上“/”字符</td>
+</tr>
+<tr>
+<td>-l</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">以长格式显示结果</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–reserve</td>
+<td style="text-align:left">以相反的顺序来显示结果</td>
+</tr>
+<tr>
+<td>-S</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">命令输出结果按照文件大小来排序</td>
+</tr>
+<tr>
+<td>-t</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">按照修改时间来排序</td>
+</tr>
+</tbody>
+</table>
+<p>&#160; &#160; &#160; &#160;而“-l“选项”导致ls的输出结果以长格式输出，这种格式包含大量的有用信息。例如：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/4.png" alt="img4"></p>
+<h2 id="less-filename-浏览filename文本文件内容"><a href="#less-filename-浏览filename文本文件内容" class="headerlink" title="less filename 浏览filename文本文件内容"></a>less filename 浏览filename文本文件内容</h2><p>&#160; &#160; &#160; &#160;输入less /etc/passwd,一旦less程序运行起来，我就能浏览文件内容了。按下“q”键，退出less程序。下表列出了less程序最常使用的键盘命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th style="text-align:left">行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page UP or b</td>
+<td style="text-align:left">向后翻滚一页</td>
+</tr>
+<tr>
+<td>Page Down or space</td>
+<td style="text-align:left">向前翻滚一页</td>
+</tr>
+<tr>
+<td>UP Arrow</td>
+<td style="text-align:left">向前移动一行</td>
+</tr>
+<tr>
+<td>Dwon Arrow</td>
+<td style="text-align:left">向后移动一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td style="text-align:left">移动到最后一行</td>
+</tr>
+<tr>
+<td>1G or g</td>
+<td style="text-align:left">移动到开头一行</td>
+</tr>
+<tr>
+<td>/charaters</td>
+<td style="text-align:left">向前查找指定的字符串</td>
+</tr>
+<tr>
+<td>n</td>
+<td style="text-align:left">向前查找下一个出现的字符串，这个字符串是之前所指定查找的</td>
+</tr>
+<tr>
+<td>h</td>
+<td style="text-align:left">显示帮助屏幕</td>
+</tr>
+<tr>
+<td>q</td>
+<td style="text-align:left">退出less程序</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cp-复制文件与目录"><a href="#cp-复制文件与目录" class="headerlink" title="cp  -复制文件与目录"></a>cp  -复制文件与目录</h2><p>&#160; &#160; &#160; &#160;<br>有两种使用方法，复制单个目录或文件到指定目录下，复制多个项目(文件或目录)到指定目录下。下表为cp命令的一些有用选项:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–archive</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
+</tr>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–recursive</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:left">–update</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令作信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–archive</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
+</tr>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–recursive</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:left">–update</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令作信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mv-移动-重命名文件和目录"><a href="#mv-移动-重命名文件和目录" class="headerlink" title="mv -移动/重命名文件和目录"></a>mv -移动/重命名文件和目录</h2><h2 id="rm-删除文件和目录"><a href="#rm-删除文件和目录" class="headerlink" title="rm -删除文件和目录"></a>rm -删除文件和目录</h2><h2 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir -创建目录"></a>mkdir -创建目录</h2><p>&#160; &#160; &#160; &#160;mkdir是用来创建目录的，它这样工作：mkdir directory…。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.</p>
+<h2 id="ln-创建硬链接和符号链接"><a href="#ln-创建硬链接和符号链接" class="headerlink" title="ln -创建硬链接和符号链接"></a>ln -创建硬链接和符号链接</h2><h1 id="第二章-Linux中不能不知道的概念"><a href="#第二章-Linux中不能不知道的概念" class="headerlink" title="第二章 Linux中不能不知道的概念"></a>第二章 Linux中不能不知道的概念</h1><h2 id="1-相对路径与绝对路径"><a href="#1-相对路径与绝对路径" class="headerlink" title="1. 相对路径与绝对路径"></a>1. 相对路径与绝对路径</h2><p>&#160; &#160; &#160; &#160;绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。”.”指的是工作目录，“..”指的是工作目录的父目录</p>
+<h2 id="2-文件名的重要规则"><a href="#2-文件名的重要规则" class="headerlink" title="2. 文件名的重要规则"></a>2. 文件名的重要规则</h2><p>&#160; &#160; &#160; &#160;1) 以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。<br>&#160; &#160; &#160; &#160;2) 文件名和命令名是大小写敏感的。文件名File和file是指两个不同的文件。<br>&#160; &#160; &#160; &#160;3) Linux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。<br>&#160; &#160; &#160; &#160;4) Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下&#160; &#160; &#160; &#160; &#160; &#160; 划线。最好不要在文件名中使用空格。</p>
+<h2 id="3-选项和参数"><a href="#3-选项和参数" class="headerlink" title="3. 选项和参数"></a>3. 选项和参数</h2><p>&#160; &#160; &#160; &#160;命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/3.png" alt="img3"><br>选一个文件，来看一下各个输出字段的含义：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drwxrwxrwx+</td>
+<td style="text-align:left">对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限</td>
+</tr>
+<tr>
+<td>34</td>
+<td style="text-align:left">文件的硬链接数目</td>
+</tr>
+<tr>
+<td>macbookpro</td>
+<td style="text-align:left">文件属主的用户名</td>
+</tr>
+<tr>
+<td>ftgroup</td>
+<td style="text-align:left">文件所属用户组的名字</td>
+</tr>
+<tr>
+<td>1156</td>
+<td style="text-align:left">以字节数表示文件的大小</td>
+</tr>
+<tr>
+<td>2 26 16:46</td>
+<td style="text-align:left">上次修改文件的时间与日期</td>
+</tr>
+<tr>
+<td>Downloader</td>
+<td style="text-align:left">文件名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-符号链接"><a href="#4-符号链接" class="headerlink" title="4. 符号链接"></a>4. 符号链接</h2><p>&#160; &#160; &#160; &#160;在我们到处查看时，我们会看到一个目录，列出这样一条信息：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/5.png" alt="img5"><br>&#160; &#160; &#160; &#160;这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。<br>􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩&#160; &#160; &#160; &#160;还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。</p>
+<h2 id="5-通配符"><a href="#5-通配符" class="headerlink" title="5. 通配符"></a>5. 通配符</h2><p>&#160; &#160; &#160; &#160;一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：</p>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:left">匹配任意多个字符(包括零个或一个)</td>
+</tr>
+<tr>
+<td>？</td>
+<td style="text-align:left">匹配任意一个字符(不包括零个)</td>
+</tr>
+<tr>
+<td>[characters]</td>
+<td style="text-align:left">匹配任意一个属于字符集中的字符</td>
+</tr>
+<tr>
+<td>[!characters]</td>
+<td style="text-align:left">匹配任意一个不是字符集中的字符</td>
+</tr>
+<tr>
+<td>[:class:]</td>
+<td style="text-align:left">匹配任意一个不属于指定字符类中的字符</td>
+</tr>
+</tbody>
+</table>
+<p>&#160; &#160; &#160; &#160;<br>下表列出最常使用的字符类:</p>
+<table>
+<thead>
+<tr>
+<th>字符类</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td style="text-align:left">匹配任意一个字母或数字</td>
+</tr>
+<tr>
+<td>[:alpha]</td>
+<td style="text-align:left">匹配任意一个字母</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td style="text-align:left">匹配任意一个数字</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td style="text-align:left">匹配任意一个小写字母</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td style="text-align:left">匹配任意一个大写字母</td>
+</tr>
+</tbody>
+</table>
+<p>&#160; &#160; &#160; &#160;<br>借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th style="text-align:left">匹配对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:left">所有文件</td>
+</tr>
+<tr>
+<td>g*</td>
+<td style="text-align:left">文件名以“g”开头的文件</td>
+</tr>
+<tr>
+<td>b*.txt</td>
+<td style="text-align:left">以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件</td>
+</tr>
+<tr>
+<td>Data???</td>
+<td style="text-align:left">以“Data开头”，其后紧接着3个字符的文件</td>
+</tr>
+<tr>
+<td>[abc]*</td>
+<td style="text-align:left">文件名以“a”，“b”，或“c”开头的文件</td>
+</tr>
+<tr>
+<td>BACKUP.[0-9][0-9][0-9]</td>
+<td style="text-align:left">以“BACkUP.”开头，并紧接着3个数字的文件</td>
+</tr>
+<tr>
+<td>[[:upper:]]*</td>
+<td style="text-align:left">以大写字母开头的文件</td>
+</tr>
+<tr>
+<td>[![:digit:]]*</td>
+<td style="text-align:left">不以数字开头的文件</td>
+</tr>
+<tr>
+<td>*[[:lower:]123]</td>
+<td style="text-align:left">文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><ul>
+<li>2</li>
+<li>3</li>
+<li>1</li>
+</ul>
+<hr>
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><ol>
+<li>这是第一</li>
+<li>这是第二</li>
+<li>这是第三</li>
+</ol>
+<h4 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h4><p><strong>百度一下</strong> <em>马上知道</em><br><a href="http://www.baidu.com" target="_blank" rel="external">baidu</a></p>
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><p><img src="http://mouapp.com/Mou_128.png" alt="Mon icon"></p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">agent dsa  dsa</td>
+<td style="text-align:right">$12</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] arg</span>)</span>&#123;</span><br><span class="line">	System.<span class="keyword">out</span>.printlnL(<span class="string">"hello word"</span>);</span><br><span class="line">	System.<span class="keyword">out</span>.printlnL(<span class="string">"hello word"</span>);</span><br><span class="line">	System.<span class="keyword">out</span>.printlnL(<span class="string">"hello word"</span>);</span><br><span class="line">	System.<span class="keyword">out</span>.printlnL(<span class="string">"hello word"</span>);</span><br><span class="line">	System.<span class="keyword">out</span>.printlnL(<span class="string">"hello word"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里是引用<br>要注意符号和文本间的空格</p>
+</blockquote>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/02/22/Linuxcommand/">
+    <time datetime="2016-02-22T02:13:37.000Z" class="entry-date">
+        2016-02-22
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/02/22/hello-world/" rel="next">Hello World <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/22/Linuxcommand/">快乐的Linux命令行</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 A MAN
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
