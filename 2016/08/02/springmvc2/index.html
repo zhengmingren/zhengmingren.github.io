@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1. Spring Web MVC处理请求流程
+具体执行步骤如下：
+
+首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。
+页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MV" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>第二章 Spring MVC简介 | 行动的力量</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. Spring Web MVC处理请求流程
+具体执行步骤如下：
+
+首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。
+页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAnd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章 Spring MVC简介">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/springmvc2/index.html">
+<meta property="og:site_name" content="行动的力量">
+<meta property="og:description" content="1. Spring Web MVC处理请求流程
+具体执行步骤如下：
+
+首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。
+页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAnd">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/6.jpg">
+<meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/7.jpg">
+<meta property="og:updated_time" content="2016-08-03T06:16:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二章 Spring MVC简介">
+<meta name="twitter:description" content="1. Spring Web MVC处理请求流程
+具体执行步骤如下：
+
+首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。
+页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAnd">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="行动的力量" rel="home">行动的力量</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">技术</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/article">文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/movie">电影</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/music">音乐</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-springmvc2" class="post-springmvc2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      第二章 Spring MVC简介
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/02/springmvc2/" data-id="cirei3hk90005tjzq5j45xo92" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-Spring-Web-MVC处理请求流程"><a href="#1-Spring-Web-MVC处理请求流程" class="headerlink" title="1. Spring Web MVC处理请求流程"></a>1. Spring Web MVC处理请求流程</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/6.jpg" alt="img"></p>
+<p>具体执行步骤如下：</p>
+<ol>
+<li>首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。</li>
+<li>页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAndView。</li>
+<li>前端控制器收回控制权，然后根据返回的逻辑视图名，选择相应的视图进行渲染，并把模型数据传入以便视图渲染。</li>
+<li>前端控制器再次收回控制权，将响应返回给用户。</li>
+</ol>
+<h3 id="2-Spring-Web-MVC架构"><a href="#2-Spring-Web-MVC架构" class="headerlink" title="2. Spring Web MVC架构"></a>2. Spring Web MVC架构</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/7.jpg" alt="img"></p>
+<p>核心架构的具体流程步骤如下：</p>
+<ol>
+<li>用户发送请求，前端控制器收到请求后自己不进行处理，而是委托给其它解析器进行处理，作为统一访问点，进行全局的流程控制。</li>
+<li>DispatcherServlet —&gt; HandlerMapping，HandlerMapping将会把请求映射为HandleExecutionChain对象（包含一个Handler处理器（页面控制器）对象，多个HandlerInterceptor拦截器）对象。</li>
+<li>DispatcherServlet —&gt; HandlerAdapter，HandlerAdapter将会把请求包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器。</li>
+<li>HandlerAdapter —&gt; 处理器功能方法的调用，HandlerAdapter会根据适配的结果调用真正的处理器的功能处理方法，完成功能处理；并返回一个ModelAndView对象（包含模型数据，逻辑视图名）。</li>
+<li>ModelAndView —&gt; ViewResolver，ViewResolver将把逻辑视图名解析为具体的view，通过这种策略模式，很容易更换其他视图技术。</li>
+<li>View —&gt; 渲染，View会根据传进来的Model模型数据进行渲染。</li>
+<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户。</li>
+</ol>
+<h3 id="Spring-Web-MVC优势"><a href="#Spring-Web-MVC优势" class="headerlink" title="Spring Web MVC优势"></a>Spring Web MVC优势</h3><ol>
+<li>清晰的角色划分。</li>
+<li>分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要；</li>
+<li>由于命令对象就是一个POJO，无需继承框架特定API，可以使用命令对象直接作为业务对象。</li>
+<li>和Spring其它框架无缝集成，是其它web框架不具备的。</li>
+<li>可适配，通过HandlerAdapter可以支持任意的类型作为处理器。</li>
+<li>可定制性，HandlerMapping，ViewResolve等能够非常简单的定制。</li>
+<li>功能强大的数据验证，格式化，绑定机制。</li>
+<li>利用Spring提供的Mock对象能够非常简单的进行web层单元测试。</li>
+<li>本地化，主题的解析的支持，使我们跟容易进行国际化和主题的切换。</li>
+<li>强大的jsp标签库，使jsp编写更容易。</li>
+<li>RESTful风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等等。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/08/02/springmvc2/">
+    <time datetime="2016-08-02T01:24:26.000Z" class="entry-date">
+        2016-08-02
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/springmvc/">springmvc</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/06/01/springmvc1/" rel="next">第一章 Web MVC简介 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/springmvc/">springmvc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 A MAN
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -67,6 +67,88 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-springmvc2" class="post-springmvc2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/08/02/springmvc2/">第二章 Spring MVC简介</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/02/springmvc2/" data-id="cirei3hk90005tjzq5j45xo92" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-Spring-Web-MVC处理请求流程"><a href="#1-Spring-Web-MVC处理请求流程" class="headerlink" title="1. Spring Web MVC处理请求流程"></a>1. Spring Web MVC处理请求流程</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/6.jpg" alt="img"></p>
+<p>具体执行步骤如下：</p>
+<ol>
+<li>首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。</li>
+<li>页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAndView。</li>
+<li>前端控制器收回控制权，然后根据返回的逻辑视图名，选择相应的视图进行渲染，并把模型数据传入以便视图渲染。</li>
+<li>前端控制器再次收回控制权，将响应返回给用户。</li>
+</ol>
+<h3 id="2-Spring-Web-MVC架构"><a href="#2-Spring-Web-MVC架构" class="headerlink" title="2. Spring Web MVC架构"></a>2. Spring Web MVC架构</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/7.jpg" alt="img"></p>
+<p>核心架构的具体流程步骤如下：</p>
+<ol>
+<li>用户发送请求，前端控制器收到请求后自己不进行处理，而是委托给其它解析器进行处理，作为统一访问点，进行全局的流程控制。</li>
+<li>DispatcherServlet —&gt; HandlerMapping，HandlerMapping将会把请求映射为HandleExecutionChain对象（包含一个Handler处理器（页面控制器）对象，多个HandlerInterceptor拦截器）对象。</li>
+<li>DispatcherServlet —&gt; HandlerAdapter，HandlerAdapter将会把请求包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器。</li>
+<li>HandlerAdapter —&gt; 处理器功能方法的调用，HandlerAdapter会根据适配的结果调用真正的处理器的功能处理方法，完成功能处理；并返回一个ModelAndView对象（包含模型数据，逻辑视图名）。</li>
+<li>ModelAndView —&gt; ViewResolver，ViewResolver将把逻辑视图名解析为具体的view，通过这种策略模式，很容易更换其他视图技术。</li>
+<li>View —&gt; 渲染，View会根据传进来的Model模型数据进行渲染。</li>
+<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户。</li>
+</ol>
+<h3 id="Spring-Web-MVC优势"><a href="#Spring-Web-MVC优势" class="headerlink" title="Spring Web MVC优势"></a>Spring Web MVC优势</h3><ol>
+<li>清晰的角色划分。</li>
+<li>分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要；</li>
+<li>由于命令对象就是一个POJO，无需继承框架特定API，可以使用命令对象直接作为业务对象。</li>
+<li>和Spring其它框架无缝集成，是其它web框架不具备的。</li>
+<li>可适配，通过HandlerAdapter可以支持任意的类型作为处理器。</li>
+<li>可定制性，HandlerMapping，ViewResolve等能够非常简单的定制。</li>
+<li>功能强大的数据验证，格式化，绑定机制。</li>
+<li>利用Spring提供的Mock对象能够非常简单的进行web层单元测试。</li>
+<li>本地化，主题的解析的支持，使我们跟容易进行国际化和主题的切换。</li>
+<li>强大的jsp标签库，使jsp编写更容易。</li>
+<li>RESTful风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等等。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/08/02/springmvc2/">
+    <time datetime="2016-08-02T01:24:26.000Z" class="entry-date">
+        2016-08-02
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/springmvc/">springmvc</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-springmvc1" class="post-springmvc1 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -82,13 +164,36 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/01/springmvc1/" data-id="circw3ep80005phzqyi3z95oq" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/01/springmvc1/" data-id="cirei3hki000atjzq4y9zfxpb" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h2>
+        <h3 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h3><blockquote>
+<p><strong>在web世界里，web客户端发送请求，web服务器接收，处理并产生响应</strong></p>
+</blockquote>
+<ol>
+<li>web浏览器（如IE）发送请求</li>
+<li>web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。</li>
+<li>web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。</li>
+</ol>
+<h3 id="1-2-标准MVC模型描述"><a href="#1-2-标准MVC模型描述" class="headerlink" title="1.2 标准MVC模型描述"></a>1.2 标准MVC模型描述</h3><blockquote>
+<p>​    <strong>MVC模型：是一种架构型的模式，本身不引入新功能，只是帮助我们将开发的结构组织的更加合理，使展示与模型分离，流程控制逻辑，业务逻辑调用与展示逻辑分离。</strong></p>
+</blockquote>
+<ul>
+<li><strong>Model模型：</strong>数据模型，提供展示的数据，包含数据就行，可以认为是领域模型或JavaBean组件（包含数据不合行为），不过现在一般都分离开来：Value Object（数据）和服务层（行为），也就是模型提供了模型数据查询和模型数据的状态更新的等功能，包括数据和业务。</li>
+<li><strong>View（视图）：</strong>负责进行模型的展示，一般就是我们见到的用户界面，客户想看到的东西。</li>
+</ul>
+<ul>
+<li><strong>Controller（控制器）：</strong>接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。</li>
+</ul>
+<p><strong>web开发框架的目标：</strong></p>
+<ol>
+<li>干净的web表现层；模型和视图的分离，控制器中的控制逻辑与功能处理分离（收集并封装参数到模型对象，业务对象调用）。</li>
+<li>轻薄的web表现层；做的事情越少越好，不应该包含无关代码，只负责收集并组织参数到模型对象，启动业务对象的应用；控制器只返回逻辑视图名并由相应的应用控制器来选择具体使用的视图策略；尽量少使用框架特定API，保证容易测试。</li>
+</ol>
+
       
     </div><!-- .entry-content -->
 
@@ -132,7 +237,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/05/27/Linuxcommand2/" data-id="circw3epc000aphzq2022e67d" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/05/27/Linuxcommand2/" data-id="cirei3hkm000dtjzqabntnw77" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -339,7 +444,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="circw3eow0000phzqoehxl2uh" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="cirei3hjs0000tjzqhe1xop2o" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -374,7 +479,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ls-－列出目录内容"><a href="#ls-－列出目录内容" class="headerlink" title="ls －列出目录内容"></a>ls －列出目录内容</h3></h2><p>&#160; &#160; &#160; &#160;ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。<br/><br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/2.png" alt="img2"></p>
+<h2 id="ls-－列出目录内容"><a href="#ls-－列出目录内容" class="headerlink" title="ls －列出目录内容"></a>ls －列出目录内容</h2><pre><code>ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。&lt;br/&gt;
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/2.png" alt="img2"></p>
 <table>
 <thead>
 <tr>
@@ -486,22 +592,22 @@
 <tr>
 <td>-a</td>
 <td style="text-align:left">–archive</td>
-<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br/>文件的默认属性</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
 </tr>
 <tr>
 <td>-i</td>
 <td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br/>cp命令默认重写文件</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
 </tr>
 <tr>
 <td>-r</td>
 <td style="text-align:left">–recursive</td>
-<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br/>要这个选项(或者-a选项)</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
 </tr>
 <tr>
 <td>-u</td>
 <td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br/>件，或者是文件内容更新于目标目录中以存在的文件</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
 </tr>
 <tr>
 <td>-v</td>
@@ -522,22 +628,22 @@
 <tr>
 <td>-a</td>
 <td style="text-align:left">–archive</td>
-<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br/>文件的默认属性</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
 </tr>
 <tr>
 <td>-i</td>
 <td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br/>cp命令默认重写文件</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
 </tr>
 <tr>
 <td>-r</td>
 <td style="text-align:left">–recursive</td>
-<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br/>要这个选项(或者-a选项)</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
 </tr>
 <tr>
 <td>-u</td>
 <td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br/>件，或者是文件内容更新于目标目录中以存在的文件</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
 </tr>
 <tr>
 <td>-v</td>
@@ -563,12 +669,12 @@
 <tr>
 <td>-i</td>
 <td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br/>mv命令默认重写文件</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>mv命令默认重写文件</td>
 </tr>
 <tr>
 <td>-u</td>
 <td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录移动到另一个目录时，仅移动目标目录中不存在的文<br/>件，或者是文件内容新于目标目录相对应文件的内容</td>
+<td style="text-align:left">当把文件从一个目录移动到另一个目录时，仅移动目标目录中不存在的文<br>件，或者是文件内容新于目标目录相对应文件的内容</td>
 </tr>
 <tr>
 <td>-v</td>
@@ -587,7 +693,7 @@
 <tbody>
 <tr>
 <td>mv file1 file2</td>
-<td style="text-align:left">移动file1到file2。如果file2存在，它的内容会被file1重写。<br/>如果file2不存在，则创建file2。每种情况下file1不存在</td>
+<td style="text-align:left">移动file1到file2。如果file2存在，它的内容会被file1重写。<br>如果file2不存在，则创建file2。每种情况下file1不存在</td>
 </tr>
 <tr>
 <td>mv -i file1 file2</td>
@@ -599,7 +705,7 @@
 </tr>
 <tr>
 <td>mv dir1 dir2</td>
-<td style="text-align:left">如果目录dir2不存在，则创建目录dir2，并且移动目录dir1的内容到目录dir2目<br/>录中，同时删除目录dir1。如果dir2存在，则dir1目录和内容移动到dir2目录</td>
+<td style="text-align:left">如果目录dir2不存在，则创建目录dir2，并且移动目录dir1的内容到目录dir2目<br>录中，同时删除目录dir1。如果dir2存在，则dir1目录和内容移动到dir2目录</td>
 </tr>
 </tbody>
 </table>
@@ -615,7 +721,7 @@
 <tr>
 <td>-i</td>
 <td style="text-align:left">–interactive</td>
-<td style="text-align:left">在删除已存在文件之前，提示用户确认。如果这个选项不指定，<br/>rm会默默删除文件</td>
+<td style="text-align:left">在删除已存在文件之前，提示用户确认。如果这个选项不指定，<br>rm会默默删除文件</td>
 </tr>
 <tr>
 <td>-r</td>
@@ -668,40 +774,7 @@
 <li>ln file link<br>创建硬链接</li>
 <li>ln -s item link<br>创建符号链接，“item”可以是一个文件或目录</li>
 </ul>
-<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><ul>
-<li>2</li>
-<li>3</li>
-<li>1</li>
-</ul>
-<hr>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><ol>
-<li>这是第一</li>
-<li>这是第二</li>
-<li>这是第三</li>
-</ol>
-<h4 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h4><p><strong>百度一下</strong> <em>马上知道</em><br><a href="http://www.baidu.com">baidu</a></p>
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><p><img src="http://mouapp.com/Mou_128.png" alt="Mon icon"></p>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:center">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">agent dsa  dsa</td>
-<td style="text-align:center">$12</td>
-</tr>
-</tbody>
-</table>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/22/Linuxcommand/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
+
       
     </div><!-- .entry-content -->
 
@@ -746,7 +819,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/springmvc/">springmvc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/springmvc/">springmvc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
     </div>
   </aside>
 
@@ -755,7 +828,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
     </div>
   </aside>
 

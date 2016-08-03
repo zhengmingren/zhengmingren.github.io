@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="1.1 Web开发中的请求-响应模型" />
+  <meta name="description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处" />
   
 
   
@@ -15,16 +21,43 @@
   
   <title>第一章 Web MVC简介 | 行动的力量</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.1 Web开发中的请求-响应模型">
+  <meta name="description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一章 Web MVC简介">
 <meta property="og:url" content="http://yoursite.com/2016/06/01/springmvc1/index.html">
 <meta property="og:site_name" content="行动的力量">
-<meta property="og:description" content="1.1 Web开发中的请求-响应模型">
-<meta property="og:updated_time" content="2016-06-01T01:28:45.000Z">
+<meta property="og:description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
+<meta property="og:updated_time" content="2016-08-02T07:17:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一章 Web MVC简介">
-<meta name="twitter:description" content="1.1 Web开发中的请求-响应模型">
+<meta name="twitter:description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -83,13 +116,36 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/01/springmvc1/" data-id="circw3ep80005phzqyi3z95oq" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/01/springmvc1/" data-id="cirei3hki000atjzq4y9zfxpb" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h2>
+        <h3 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h3><blockquote>
+<p><strong>在web世界里，web客户端发送请求，web服务器接收，处理并产生响应</strong></p>
+</blockquote>
+<ol>
+<li>web浏览器（如IE）发送请求</li>
+<li>web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。</li>
+<li>web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。</li>
+</ol>
+<h3 id="1-2-标准MVC模型描述"><a href="#1-2-标准MVC模型描述" class="headerlink" title="1.2 标准MVC模型描述"></a>1.2 标准MVC模型描述</h3><blockquote>
+<p>​    <strong>MVC模型：是一种架构型的模式，本身不引入新功能，只是帮助我们将开发的结构组织的更加合理，使展示与模型分离，流程控制逻辑，业务逻辑调用与展示逻辑分离。</strong></p>
+</blockquote>
+<ul>
+<li><strong>Model模型：</strong>数据模型，提供展示的数据，包含数据就行，可以认为是领域模型或JavaBean组件（包含数据不合行为），不过现在一般都分离开来：Value Object（数据）和服务层（行为），也就是模型提供了模型数据查询和模型数据的状态更新的等功能，包括数据和业务。</li>
+<li><strong>View（视图）：</strong>负责进行模型的展示，一般就是我们见到的用户界面，客户想看到的东西。</li>
+</ul>
+<ul>
+<li><strong>Controller（控制器）：</strong>接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。</li>
+</ul>
+<p><strong>web开发框架的目标：</strong></p>
+<ol>
+<li>干净的web表现层；模型和视图的分离，控制器中的控制逻辑与功能处理分离（收集并封装参数到模型对象，业务对象调用）。</li>
+<li>轻薄的web表现层；做的事情越少越好，不应该包含无关代码，只负责收集并组织参数到模型对象，启动业务对象的应用；控制器只返回逻辑视图名并由相应的应用控制器来选择具体使用的视图策略；尽量少使用框架特定API，保证容易测试。</li>
+</ol>
+
       
     </div><!-- .entry-content -->
 
@@ -117,6 +173,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/2016/08/02/springmvc2/" rel="prev"><span class="meta-nav">←</span> 第二章 Spring MVC简介</a></span>
+    
     
         <span class="nav-next"><a href="/2016/05/27/Linuxcommand2/" rel="next">第二章 Linux中不能不知道的概念 <span class="meta-nav">→</span></a></span>
     
@@ -142,7 +200,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/springmvc/">springmvc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/springmvc/">springmvc</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">快乐的Linux命令行</a><span class="category-list-count">2</span></li></ul>
     </div>
   </aside>
 
@@ -151,7 +209,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
     </div>
   </aside>
 
