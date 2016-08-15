@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="1. 文档​    文档是MongDB的核心概念，多个键以及关键值有序地放置在一起便是文档。例如：
+​    { “greeting” : “hello,world!”, “foo” : 3}
+
+文档中的键/值对是有序的，上面的文档和下面的文档是完全不同的：
+{“foo” ：3 , “greetin" />
+  
 
   
   
@@ -11,17 +17,36 @@
   
   
   
-  <title>行动的力量</title>
+  <title>第一章 MongDB简介 | 行动的力量</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="行动的力量">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1. 文档​    文档是MongDB的核心概念，多个键以及关键值有序地放置在一起便是文档。例如：
+​    { “greeting” : “hello,world!”, “foo” : 3}
+
+文档中的键/值对是有序的，上面的文档和下面的文档是完全不同的：
+{“foo” ：3 , “greeting” : “hello,world”}
+
+文档中的值不仅可以是在双引号中的字符串，也可是其它几种数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章 MongDB简介">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/mongodb/index.html">
 <meta property="og:site_name" content="行动的力量">
-<meta property="og:description">
+<meta property="og:description" content="1. 文档​    文档是MongDB的核心概念，多个键以及关键值有序地放置在一起便是文档。例如：
+​    { “greeting” : “hello,world!”, “foo” : 3}
+
+文档中的键/值对是有序的，上面的文档和下面的文档是完全不同的：
+{“foo” ：3 , “greeting” : “hello,world”}
+
+文档中的值不仅可以是在双引号中的字符串，也可是其它几种数据">
+<meta property="og:updated_time" content="2016-08-15T00:54:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="行动的力量">
-<meta name="twitter:description">
+<meta name="twitter:title" content="第一章 MongDB简介">
+<meta name="twitter:description" content="1. 文档​    文档是MongDB的核心概念，多个键以及关键值有序地放置在一起便是文档。例如：
+​    { “greeting” : “hello,world!”, “foo” : 3}
+
+文档中的键/值对是有序的，上面的文档和下面的文档是完全不同的：
+{“foo” ：3 , “greeting” : “hello,world”}
+
+文档中的值不仅可以是在双引号中的字符串，也可是其它几种数据">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -65,99 +90,15 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-springmvc2" class="post-springmvc2 post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-mongodb" class="post-mongodb post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/08/02/springmvc2/">第二章 Spring MVC简介</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/08/02/springmvc2/" data-id="cirvbvsxj0005q9zqqmli4her" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h3 id="1-Spring-Web-MVC处理请求流程"><a href="#1-Spring-Web-MVC处理请求流程" class="headerlink" title="1. Spring Web MVC处理请求流程"></a>1. Spring Web MVC处理请求流程</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/6.jpg" alt="img"></p>
-<p>具体执行步骤如下：</p>
-<ol>
-<li>首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。</li>
-<li>页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAndView。</li>
-<li>前端控制器收回控制权，然后根据返回的逻辑视图名，选择相应的视图进行渲染，并把模型数据传入以便视图渲染。</li>
-<li>前端控制器再次收回控制权，将响应返回给用户。</li>
-</ol>
-<h3 id="2-Spring-Web-MVC架构"><a href="#2-Spring-Web-MVC架构" class="headerlink" title="2. Spring Web MVC架构"></a>2. Spring Web MVC架构</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/7.jpg" alt="img"></p>
-<p>核心架构的具体流程步骤如下：</p>
-<ol>
-<li>用户发送请求，前端控制器收到请求后自己不进行处理，而是委托给其它解析器进行处理，作为统一访问点，进行全局的流程控制。</li>
-<li>DispatcherServlet —&gt; HandlerMapping，HandlerMapping将会把请求映射为HandleExecutionChain对象（包含一个Handler处理器（页面控制器）对象，多个HandlerInterceptor拦截器）对象。</li>
-<li>DispatcherServlet —&gt; HandlerAdapter，HandlerAdapter将会把请求包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器。</li>
-<li>HandlerAdapter —&gt; 处理器功能方法的调用，HandlerAdapter会根据适配的结果调用真正的处理器的功能处理方法，完成功能处理；并返回一个ModelAndView对象（包含模型数据，逻辑视图名）。</li>
-<li>ModelAndView —&gt; ViewResolver，ViewResolver将把逻辑视图名解析为具体的view，通过这种策略模式，很容易更换其他视图技术。</li>
-<li>View —&gt; 渲染，View会根据传进来的Model模型数据进行渲染。</li>
-<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户。</li>
-</ol>
-<h3 id="Spring-Web-MVC优势"><a href="#Spring-Web-MVC优势" class="headerlink" title="Spring Web MVC优势"></a>Spring Web MVC优势</h3><ol>
-<li>清晰的角色划分。</li>
-<li>分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要；</li>
-<li>由于命令对象就是一个POJO，无需继承框架特定API，可以使用命令对象直接作为业务对象。</li>
-<li>和Spring其它框架无缝集成，是其它web框架不具备的。</li>
-<li>可适配，通过HandlerAdapter可以支持任意的类型作为处理器。</li>
-<li>可定制性，HandlerMapping，ViewResolve等能够非常简单的定制。</li>
-<li>功能强大的数据验证，格式化，绑定机制。</li>
-<li>利用Spring提供的Mock对象能够非常简单的进行web层单元测试。</li>
-<li>本地化，主题的解析的支持，使我们跟容易进行国际化和主题的切换。</li>
-<li>强大的jsp标签库，使jsp编写更容易。</li>
-<li>RESTful风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等等。</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/08/02/springmvc2/">
-    <time datetime="2016-08-02T01:24:26.000Z" class="entry-date">
-        2016-08-02
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/springmvc/">springmvc</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-mongodb" class="post-mongodb post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/08/02/mongodb/">第一章 MongDB简介</a>
+    <h1 class="entry-title article-title">
+      第一章 MongDB简介
     </h1>
   
 
@@ -386,666 +327,22 @@
 </article>
 
 
-
-
-
-
-  
-    <article id="post-springmvc1" class="post-springmvc1 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/06/01/springmvc1/">第一章 Web MVC简介</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/01/springmvc1/" data-id="cirvbvsxm000aq9zqzub707pl" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h3 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h3><blockquote>
-<p><strong>在web世界里，web客户端发送请求，web服务器接收，处理并产生响应</strong></p>
-</blockquote>
-<ol>
-<li>web浏览器（如IE）发送请求</li>
-<li>web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。</li>
-<li>web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。</li>
-</ol>
-<h3 id="1-2-标准MVC模型描述"><a href="#1-2-标准MVC模型描述" class="headerlink" title="1.2 标准MVC模型描述"></a>1.2 标准MVC模型描述</h3><blockquote>
-<p>​    <strong>MVC模型：是一种架构型的模式，本身不引入新功能，只是帮助我们将开发的结构组织的更加合理，使展示与模型分离，流程控制逻辑，业务逻辑调用与展示逻辑分离。</strong></p>
-</blockquote>
-<ul>
-<li><strong>Model模型：</strong>数据模型，提供展示的数据，包含数据就行，可以认为是领域模型或JavaBean组件（包含数据不合行为），不过现在一般都分离开来：Value Object（数据）和服务层（行为），也就是模型提供了模型数据查询和模型数据的状态更新的等功能，包括数据和业务。</li>
-<li><strong>View（视图）：</strong>负责进行模型的展示，一般就是我们见到的用户界面，客户想看到的东西。</li>
-</ul>
-<ul>
-<li><strong>Controller（控制器）：</strong>接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。</li>
-</ul>
-<p><strong>web开发框架的目标：</strong></p>
-<ol>
-<li>干净的web表现层；模型和视图的分离，控制器中的控制逻辑与功能处理分离（收集并封装参数到模型对象，业务对象调用）。</li>
-<li>轻薄的web表现层；做的事情越少越好，不应该包含无关代码，只负责收集并组织参数到模型对象，启动业务对象的应用；控制器只返回逻辑视图名并由相应的应用控制器来选择具体使用的视图策略；尽量少使用框架特定API，保证容易测试。</li>
-</ol>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/06/01/springmvc1/">
-    <time datetime="2016-06-01T01:24:26.000Z" class="entry-date">
-        2016-06-01
-    </time>
-</a>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/springmvc/">springmvc</a>
-  </div>
-
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Linuxcommand2" class="post-Linuxcommand2 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/05/27/Linuxcommand2/">第二章 Linux中不能不知道的概念</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/05/27/Linuxcommand2/" data-id="cirvbvsxt000iq9zqanx5cc68" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="1-相对路径与绝对路径"><a href="#1-相对路径与绝对路径" class="headerlink" title="1. 相对路径与绝对路径"></a>1. 相对路径与绝对路径</h2><pre><code>绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。&quot;.&quot;指的是工作目录，“..”指的是工作目录的父目录
-</code></pre><h2 id="2-文件名的重要规则"><a href="#2-文件名的重要规则" class="headerlink" title="2. 文件名的重要规则"></a>2. 文件名的重要规则</h2><ol>
-<li>以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。</li>
-<li>文件名和命令名是大小写敏感的。文件名File和file是☞两个不同的文件。</li>
-<li>LInux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。</li>
-<li>Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下划线。最好不要在文件名中使用空格。</li>
-</ol>
-<h2 id="3-选项和参数"><a href="#3-选项和参数" class="headerlink" title="3. 选项和参数"></a>3. 选项和参数</h2><p>&#160; &#160; &#160; &#160;命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/3.png" alt="img3"><br>选一个文件，来看一下各个输出字段的含义：</p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>drwxrwxrwx+</td>
-<td style="text-align:left">对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限</td>
-</tr>
-<tr>
-<td>34</td>
-<td style="text-align:left">文件的硬链接数目</td>
-</tr>
-<tr>
-<td>macbookpro</td>
-<td style="text-align:left">文件属主的用户名</td>
-</tr>
-<tr>
-<td>ftgroup</td>
-<td style="text-align:left">文件所属用户组的名字</td>
-</tr>
-<tr>
-<td>1156</td>
-<td style="text-align:left">以字节数表示文件的大小</td>
-</tr>
-<tr>
-<td>2 26 16:46</td>
-<td style="text-align:left">上次修改文件的时间与日期</td>
-</tr>
-<tr>
-<td>Downloader</td>
-<td style="text-align:left">文件名</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-符号链接"><a href="#4-符号链接" class="headerlink" title="4. 符号链接"></a>4. 符号链接</h2><pre><code>在我们到处查看时，我们会看到一个目录，列出这样一条信息：
-</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/5.png" alt="img5"><br>&#160; &#160; &#160; &#160;这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。<br>􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩&#160; &#160; &#160; &#160;还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。</p>
-<h2 id="5-通配符"><a href="#5-通配符" class="headerlink" title="5. 通配符"></a>5. 通配符</h2><p>&#160; &#160; &#160; &#160;一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：</p>
-<table>
-<thead>
-<tr>
-<th>通配符</th>
-<th style="text-align:left">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td style="text-align:left">匹配任意多个字符(包括零个或一个)</td>
-</tr>
-<tr>
-<td>？</td>
-<td style="text-align:left">匹配任意一个字符(不包括零个)</td>
-</tr>
-<tr>
-<td>[characters]</td>
-<td style="text-align:left">匹配任意一个属于字符集中的字符</td>
-</tr>
-<tr>
-<td>[!characters]</td>
-<td style="text-align:left">匹配任意一个不是字符集中的字符</td>
-</tr>
-<tr>
-<td>[:class:]</td>
-<td style="text-align:left">匹配任意一个不属于指定字符类中的字符</td>
-</tr>
-</tbody>
-</table>
-<p>&#160; &#160; &#160; &#160;<br>下表列出最常使用的字符类:</p>
-<table>
-<thead>
-<tr>
-<th>字符类</th>
-<th style="text-align:left">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[:alnum:]</td>
-<td style="text-align:left">匹配任意一个字母或数字</td>
-</tr>
-<tr>
-<td>[:alpha]</td>
-<td style="text-align:left">匹配任意一个字母</td>
-</tr>
-<tr>
-<td>[:digit:]</td>
-<td style="text-align:left">匹配任意一个数字</td>
-</tr>
-<tr>
-<td>[:lower:]</td>
-<td style="text-align:left">匹配任意一个小写字母</td>
-</tr>
-<tr>
-<td>[:upper:]</td>
-<td style="text-align:left">匹配任意一个大写字母</td>
-</tr>
-</tbody>
-</table>
-<p>&#160; &#160; &#160; &#160;<br>借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:</p>
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th style="text-align:left">匹配对象</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td style="text-align:left">所有文件</td>
-</tr>
-<tr>
-<td>g*</td>
-<td style="text-align:left">文件名以“g”开头的文件</td>
-</tr>
-<tr>
-<td>b*.txt</td>
-<td style="text-align:left">以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件</td>
-</tr>
-<tr>
-<td>Data???</td>
-<td style="text-align:left">以“Data开头”，其后紧接着3个字符的文件</td>
-</tr>
-<tr>
-<td>[abc]*</td>
-<td style="text-align:left">文件名以“a”，“b”，或“c”开头的文件</td>
-</tr>
-<tr>
-<td>BACKUP.[0-9][0-9][0-9]</td>
-<td style="text-align:left">以“BACkUP.”开头，并紧接着3个数字的文件</td>
-</tr>
-<tr>
-<td>[[:upper:]]*</td>
-<td style="text-align:left">以大写字母开头的文件</td>
-</tr>
-<tr>
-<td>[![:digit:]]*</td>
-<td style="text-align:left">不以数字开头的文件</td>
-</tr>
-<tr>
-<td>*[[:lower:]123]</td>
-<td style="text-align:left">文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/05/27/Linuxcommand2/">
-    <time datetime="2016-05-27T09:46:57.000Z" class="entry-date">
-        2016-05-27
-    </time>
-</a>
+        <span class="nav-previous"><a href="/2016/08/02/springmvc2/" rel="prev"><span class="meta-nav">←</span> 第二章 Spring MVC简介</a></span>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/Linux/">快乐的Linux命令行</a>
-  </div>
-
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-Linuxcommand" class="post-Linuxcommand post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/02/22/Linuxcommand/">第一章  简单命令的使用</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/02/22/Linuxcommand/" data-id="cirvbvsxa0000q9zqhkcs9wk0" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="pwd-－打印出当前工作目录名"><a href="#pwd-－打印出当前工作目录名" class="headerlink" title="pwd －打印出当前工作目录名"></a>pwd －打印出当前工作目录名</h2><pre><code>我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
-</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/1.png" alt="img1"></p>
-<h2 id="cd-－更改目录"><a href="#cd-－更改目录" class="headerlink" title="cd －更改目录"></a>cd －更改目录</h2><p>&#160; &#160; &#160; &#160;路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th style="text-align:left">运行结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd</td>
-<td style="text-align:left">更改工作目录到主目录</td>
-</tr>
-<tr>
-<td>cd ..</td>
-<td style="text-align:left">更改工作目录到工作目录父目录</td>
-</tr>
-<tr>
-<td>cd -</td>
-<td style="text-align:left">更改工作目录到先前的工作目录</td>
-</tr>
-<tr>
-<td>cd ~user_name</td>
-<td style="text-align:left">更改工作目录到用户主目录</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ls-－列出目录内容"><a href="#ls-－列出目录内容" class="headerlink" title="ls －列出目录内容"></a>ls －列出目录内容</h2><pre><code>ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。&lt;br/&gt;
-</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/2.png" alt="img2"></p>
-<table>
-<thead>
-<tr>
-<th>参数&#160; &#160;</th>
-<th style="text-align:left">长选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td style="text-align:left">–all</td>
-<td style="text-align:left">列出所以文件，包括圆点开头的隐藏文件</td>
-</tr>
-<tr>
-<td>-d</td>
-<td style="text-align:left">–directory</td>
-<td style="text-align:left">与-l结合使用，可以看到指定目录的详细信息</td>
-</tr>
-<tr>
-<td>-F</td>
-<td style="text-align:left">–classify</td>
-<td style="text-align:left">会在每个选项的名字后面加上一个指示符，比如名字是目录名就会加上“/”字符</td>
-</tr>
-<tr>
-<td>-l</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">以长格式显示结果</td>
-</tr>
-<tr>
-<td>-r</td>
-<td style="text-align:left">–reserve</td>
-<td style="text-align:left">以相反的顺序来显示结果</td>
-</tr>
-<tr>
-<td>-S</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">命令输出结果按照文件大小来排序</td>
-</tr>
-<tr>
-<td>-t</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">按照修改时间来排序</td>
-</tr>
-</tbody>
-</table>
-<p>&#160; &#160; &#160; &#160;而“-l“选项”导致ls的输出结果以长格式输出，这种格式包含大量的有用信息。例如：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/4.png" alt="img4"></p>
-<h2 id="less-filename-浏览filename文本文件内容"><a href="#less-filename-浏览filename文本文件内容" class="headerlink" title="less filename 浏览filename文本文件内容"></a>less filename 浏览filename文本文件内容</h2><p>&#160; &#160; &#160; &#160;输入less /etc/passwd,一旦less程序运行起来，我就能浏览文件内容了。按下“q”键，退出less程序。下表列出了less程序最常使用的键盘命令：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th style="text-align:left">行为</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Page UP or b</td>
-<td style="text-align:left">向后翻滚一页</td>
-</tr>
-<tr>
-<td>Page Down or space</td>
-<td style="text-align:left">向前翻滚一页</td>
-</tr>
-<tr>
-<td>UP Arrow</td>
-<td style="text-align:left">向前移动一行</td>
-</tr>
-<tr>
-<td>Dwon Arrow</td>
-<td style="text-align:left">向后移动一行</td>
-</tr>
-<tr>
-<td>G</td>
-<td style="text-align:left">移动到最后一行</td>
-</tr>
-<tr>
-<td>1G or g</td>
-<td style="text-align:left">移动到开头一行</td>
-</tr>
-<tr>
-<td>/charaters</td>
-<td style="text-align:left">向前查找指定的字符串</td>
-</tr>
-<tr>
-<td>n</td>
-<td style="text-align:left">向前查找下一个出现的字符串，这个字符串是之前所指定查找的</td>
-</tr>
-<tr>
-<td>h</td>
-<td style="text-align:left">显示帮助屏幕</td>
-</tr>
-<tr>
-<td>q</td>
-<td style="text-align:left">退出less程序</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cp-复制文件与目录"><a href="#cp-复制文件与目录" class="headerlink" title="cp  -复制文件与目录"></a>cp  -复制文件与目录</h2><p>&#160; &#160; &#160; &#160;<br>有两种使用方法，复制单个目录或文件到指定目录下，复制多个项目(文件或目录)到指定目录下。下表为cp命令的一些有用选项:</p>
-<table>
-<thead>
-<tr>
-<th>参数&#160; &#160;</th>
-<th style="text-align:left">长选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td style="text-align:left">–archive</td>
-<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
-</tr>
-<tr>
-<td>-i</td>
-<td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
-</tr>
-<tr>
-<td>-r</td>
-<td style="text-align:left">–recursive</td>
-<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
-</tr>
-<tr>
-<td>-u</td>
-<td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
-</tr>
-<tr>
-<td>-v</td>
-<td style="text-align:left">–verbose</td>
-<td style="text-align:left">显示翔实的命令作信息</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>参数&#160; &#160;</th>
-<th style="text-align:left">长选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td style="text-align:left">–archive</td>
-<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
-</tr>
-<tr>
-<td>-i</td>
-<td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
-</tr>
-<tr>
-<td>-r</td>
-<td style="text-align:left">–recursive</td>
-<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
-</tr>
-<tr>
-<td>-u</td>
-<td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
-</tr>
-<tr>
-<td>-v</td>
-<td style="text-align:left">–verbose</td>
-<td style="text-align:left">显示翔实的命令操作信息</td>
-</tr>
-</tbody>
-</table>
-<h2 id="mv-移动-重命名文件和目录"><a href="#mv-移动-重命名文件和目录" class="headerlink" title="mv -移动/重命名文件和目录"></a>mv -移动/重命名文件和目录</h2><p>&#160; &#160; &#160; &#160;mv操作是移动文件和给文件重命名，而且完成该操作之后，在原来目录下的文件名将不存在。</p>
-<ul>
-<li>mv item1 item2<br>把文件或目录“item1”移动或重命名为“item2”。</li>
-<li>mv item… directory<br>把一个或多个目录移动到另一个目录中。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数&#160; &#160;</th>
-<th style="text-align:left">长选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td style="text-align:left">–interactive</td>
-<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>mv命令默认重写文件</td>
-</tr>
-<tr>
-<td>-u</td>
-<td style="text-align:left">–update</td>
-<td style="text-align:left">当把文件从一个目录移动到另一个目录时，仅移动目标目录中不存在的文<br>件，或者是文件内容新于目标目录相对应文件的内容</td>
-</tr>
-<tr>
-<td>-v</td>
-<td style="text-align:left">–verbose</td>
-<td style="text-align:left">显示翔实的命令操作作信息</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>操作&#160; &#160; &#160; &#160; &#160; &#160;</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mv file1 file2</td>
-<td style="text-align:left">移动file1到file2。如果file2存在，它的内容会被file1重写。<br>如果file2不存在，则创建file2。每种情况下file1不存在</td>
-</tr>
-<tr>
-<td>mv -i file1 file2</td>
-<td style="text-align:left">如果file2存在的话，在file2被重写之前，用户会得到提示信息</td>
-</tr>
-<tr>
-<td>mv file1 file2 dir1</td>
-<td style="text-align:left">移动file1和file2到dir1目录，dir1目录必须存在</td>
-</tr>
-<tr>
-<td>mv dir1 dir2</td>
-<td style="text-align:left">如果目录dir2不存在，则创建目录dir2，并且移动目录dir1的内容到目录dir2目<br>录中，同时删除目录dir1。如果dir2存在，则dir1目录和内容移动到dir2目录</td>
-</tr>
-</tbody>
-</table>
-<h2 id="rm-删除文件和目录"><a href="#rm-删除文件和目录" class="headerlink" title="rm -删除文件和目录"></a>rm -删除文件和目录</h2><table>
-<thead>
-<tr>
-<th>参数&#160; &#160;</th>
-<th style="text-align:left">长选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td style="text-align:left">–interactive</td>
-<td style="text-align:left">在删除已存在文件之前，提示用户确认。如果这个选项不指定，<br>rm会默默删除文件</td>
-</tr>
-<tr>
-<td>-r</td>
-<td style="text-align:left">–recursive</td>
-<td style="text-align:left">递归删除文件，删除目录必须指定这个选项</td>
-</tr>
-<tr>
-<td>-f</td>
-<td style="text-align:left">–force</td>
-<td style="text-align:left">忽视不存在的文件，不显示提示信息。</td>
-</tr>
-<tr>
-<td>-v</td>
-<td style="text-align:left">–verbose</td>
-<td style="text-align:left">显示翔实的命令操作信息</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>操作&#160; &#160; &#160; &#160; &#160; &#160;</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>rm file1</td>
-<td style="text-align:left">默默地删除文件file1</td>
-</tr>
-<tr>
-<td>rm -i file1</td>
-<td style="text-align:left">在删除文件之前，提示用户确认信息</td>
-</tr>
-<tr>
-<td>rm -r file1 dir1</td>
-<td style="text-align:left">删除文件file1和目录dir1以及dir1中的内容</td>
-</tr>
-<tr>
-<td>rm -rf dir1 dir2</td>
-<td style="text-align:left">同上，如果文件file1或dir1不存在，rm任会继续执行</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>注意：小心rm！<br>rm删除了的东西就不能复原了，在rm与通配符的使用中就要更加谨慎了。</li>
-</ul>
-<h2 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir -创建目录"></a>mkdir -创建目录</h2><p>&#160; &#160; &#160; &#160;mkdir是用来创建目录的，它这样工作：mkdir directory…。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.</p>
-<h2 id="ln-创建硬链接和符号链接"><a href="#ln-创建硬链接和符号链接" class="headerlink" title="ln -创建硬链接和符号链接"></a>ln -创建硬链接和符号链接</h2><ul>
-<li>ln file link<br>创建硬链接</li>
-<li>ln -s item link<br>创建符号链接，“item”可以是一个文件或目录</li>
-</ul>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/02/22/Linuxcommand/">
-    <time datetime="2016-02-22T02:13:37.000Z" class="entry-date">
-        2016-02-22
-    </time>
-</a>
+        <span class="nav-next"><a href="/2016/06/01/springmvc1/" rel="next">第一章 Web MVC简介 <span class="meta-nav">→</span></a></span>
     
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/Linux/">快乐的Linux命令行</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
+</nav><!-- .nav-single -->
 
 
 
 
 
 
-  
-  
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
