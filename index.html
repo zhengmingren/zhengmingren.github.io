@@ -67,6 +67,483 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-springmvc2" class="post-springmvc2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/technology/springmvc2/">第二章 Spring MVC简介</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/springmvc2/" data-id="cj15ztjl10005sezqpc5btxja" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-Spring-Web-MVC处理请求流程"><a href="#1-Spring-Web-MVC处理请求流程" class="headerlink" title="1. Spring Web MVC处理请求流程"></a>1. Spring Web MVC处理请求流程</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/6.jpg" alt="img"></p>
+<p>具体执行步骤如下：</p>
+<ol>
+<li>首先用户发送请求给前端控制器，前端控制器根据请求信息（如URL）来决定选择哪一个页面控制器进行处理并把请求委托给它。</li>
+<li>页面控制器接收到请求后，进行功能处理，首先需要收集和绑定请求参数到一个对象，这个对象在Spring Web MVC中叫命令对象，并进行验证，然后将命令对象委托给业务对象进行处理；处理完毕后返回一个ModelAndView。</li>
+<li>前端控制器收回控制权，然后根据返回的逻辑视图名，选择相应的视图进行渲染，并把模型数据传入以便视图渲染。</li>
+<li>前端控制器再次收回控制权，将响应返回给用户。</li>
+</ol>
+<h3 id="2-Spring-Web-MVC架构"><a href="#2-Spring-Web-MVC架构" class="headerlink" title="2. Spring Web MVC架构"></a>2. Spring Web MVC架构</h3><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/7.jpg" alt="img"></p>
+<p>核心架构的具体流程步骤如下：</p>
+<ol>
+<li>用户发送请求，前端控制器收到请求后自己不进行处理，而是委托给其它解析器进行处理，作为统一访问点，进行全局的流程控制。</li>
+<li>DispatcherServlet —&gt; HandlerMapping，HandlerMapping将会把请求映射为HandleExecutionChain对象（包含一个Handler处理器（页面控制器）对象，多个HandlerInterceptor拦截器）对象。</li>
+<li>DispatcherServlet —&gt; HandlerAdapter，HandlerAdapter将会把请求包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器。</li>
+<li>HandlerAdapter —&gt; 处理器功能方法的调用，HandlerAdapter会根据适配的结果调用真正的处理器的功能处理方法，完成功能处理；并返回一个ModelAndView对象（包含模型数据，逻辑视图名）。</li>
+<li>ModelAndView —&gt; ViewResolver，ViewResolver将把逻辑视图名解析为具体的view，通过这种策略模式，很容易更换其他视图技术。</li>
+<li>View —&gt; 渲染，View会根据传进来的Model模型数据进行渲染。</li>
+<li>返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户。</li>
+</ol>
+<h3 id="Spring-Web-MVC优势"><a href="#Spring-Web-MVC优势" class="headerlink" title="Spring Web MVC优势"></a>Spring Web MVC优势</h3><ol>
+<li>清晰的角色划分。</li>
+<li>分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要；</li>
+<li>由于命令对象就是一个POJO，无需继承框架特定API，可以使用命令对象直接作为业务对象。</li>
+<li>和Spring其它框架无缝集成，是其它web框架不具备的。</li>
+<li>可适配，通过HandlerAdapter可以支持任意的类型作为处理器。</li>
+<li>可定制性，HandlerMapping，ViewResolve等能够非常简单的定制。</li>
+<li>功能强大的数据验证，格式化，绑定机制。</li>
+<li>利用Spring提供的Mock对象能够非常简单的进行web层单元测试。</li>
+<li>本地化，主题的解析的支持，使我们跟容易进行国际化和主题的切换。</li>
+<li>强大的jsp标签库，使jsp编写更容易。</li>
+<li>RESTful风格的支持、简单的文件上传、约定大于配置的契约式编程支持、基于注解的零配置支持等等。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/technology/springmvc2/">
+    <time datetime="2017-04-06T05:50:54.000Z" class="entry-date">
+        2017-04-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-springmvc1" class="post-springmvc1 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/technology/springmvc1/">第一章 Web MVC简介</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/springmvc1/" data-id="cj15ztjl40009sezqhe6qdfi3" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h3><blockquote>
+<p><strong>在web世界里，web客户端发送请求，web服务器接收，处理并产生响应</strong></p>
+</blockquote>
+<ol>
+<li>web浏览器（如IE）发送请求</li>
+<li>web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。</li>
+<li>web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。</li>
+</ol>
+<h3 id="1-2-标准MVC模型描述"><a href="#1-2-标准MVC模型描述" class="headerlink" title="1.2 标准MVC模型描述"></a>1.2 标准MVC模型描述</h3><blockquote>
+<p>​    <strong>MVC模型：是一种架构型的模式，本身不引入新功能，只是帮助我们将开发的结构组织的更加合理，使展示与模型分离，流程控制逻辑，业务逻辑调用与展示逻辑分离。</strong></p>
+</blockquote>
+<ul>
+<li><strong>Model模型：</strong>数据模型，提供展示的数据，包含数据就行，可以认为是领域模型或JavaBean组件（包含数据不合行为），不过现在一般都分离开来：Value Object（数据）和服务层（行为），也就是模型提供了模型数据查询和模型数据的状态更新的等功能，包括数据和业务。</li>
+<li><strong>View（视图）：</strong>负责进行模型的展示，一般就是我们见到的用户界面，客户想看到的东西。</li>
+</ul>
+<ul>
+<li><strong>Controller（控制器）：</strong>接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。</li>
+</ul>
+<p><strong>web开发框架的目标：</strong></p>
+<ol>
+<li>干净的web表现层；模型和视图的分离，控制器中的控制逻辑与功能处理分离（收集并封装参数到模型对象，业务对象调用）。</li>
+<li>轻薄的web表现层；做的事情越少越好，不应该包含无关代码，只负责收集并组织参数到模型对象，启动业务对象的应用；控制器只返回逻辑视图名并由相应的应用控制器来选择具体使用的视图策略；尽量少使用框架特定API，保证容易测试。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/technology/springmvc1/">
+    <time datetime="2017-04-06T05:50:47.000Z" class="entry-date">
+        2017-04-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-mongodb2" class="post-mongodb2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/technology/mongodb2/">第二章 MongDB创建、更新及删除文档</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/mongodb2/" data-id="cj15ztjl6000csezqi9hnx4lk" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-创建文档"><a href="#1-创建文档" class="headerlink" title="1. 创建文档"></a>1. 创建文档</h3><p>插入是向MongDB添加数据的基本方法。一般使用insert方法插入一个文档。</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.foo.<span class="keyword">insert</span>(&#123;<span class="string">"bar"</span>:<span class="string">"baz"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个操作会给文档增加一个“_id”键（要是原来的话），然后将其保存在MongDB中。</p>
+<p>当执行插入的时候，驱动程序会将数据转换成BSON格式，然后存入数据库。数据库会解析BSON，检验是否包含“_id”键且文档不超过4MB，除此之外，不再做别的验证。这样做最明显的副作用是允许出入无效数据，但它能令数据库更加安全，远离注入式攻击。</p>
+<p>如果要出入多个文档，使用批量插入会更快些，批量插入能传递一个由文档构成的数组给数据库。一次发送数十、数百个乃至数千个文档会明显提高插入的速度。一次批量插入只是单个的TCP请求，避免了许多零碎的请求所带来的开销。只有插入多个文档到一个集合的时候才有用，而不能用批量插入一次对多个集合执行操作。</p>
+<h3 id="2-删除文档"><a href="#2-删除文档" class="headerlink" title="2. 删除文档"></a>2. 删除文档</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">db</span><span class="class">.users</span><span class="class">.remove</span>(<span class="rules">&#123;&#125;</span>)</span><br></pre></td></tr></table></figure>
+<p>这个命令会删除users集合中的所有文档，但不会删除集合本身和集合原有的索引，remove函数可以接受一个查询文档作为参数，给定参数后，只有符合条件的文档才会被删除。例如，假设要删除users集合中“status”为0的人：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.<span class="keyword">remove</span>(&#123;<span class="string">"status"</span>: <span class="number">0</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>删除数据是永久的，不能撤销，也不能恢复。</p>
+<p>删除文档通常会很快，但是要清除整个集合，直接删除集合（然后重建索引）会更快。但是删除的时候不能有任何限制条件，而且索引也不见了。</p>
+<h3 id="3-更新文档"><a href="#3-更新文档" class="headerlink" title="3. 更新文档"></a>3. 更新文档</h3><p>文档存入数据库后，就可以用update方法来修改它。update有两个参数，一个是查询文档，用来匹配找出要跟新的文档，另一个是修改器（modiffier）文档，描述对找到的文档做哪些更改。</p>
+<h4 id="3-1-文档替换"><a href="#3-1-文档替换" class="headerlink" title="3.1 文档替换"></a>3.1 文档替换</h4><p>更新最简单的情形就是完全用一个新的文档替代匹配的文档，适用于模式结构发生了较大变化的时候。例如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">_id</span>" : <span class="value">ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>)，</span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"joe"</span>，</span><br><span class="line">  <span class="string">"friends"</span> : <span class="number">32</span></span>,</span><br><span class="line">  "<span class="attribute">enenmies</span>" : <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>想变成下面的样子：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">_id</span>" : <span class="value">ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>)</span>,</span><br><span class="line">  "<span class="attribute">username</span>" : <span class="value"><span class="string">"joe"</span></span>,</span><br><span class="line">  "<span class="attribute">relationships</span>" : <span class="value">&#123;</span><br><span class="line">  					"<span class="attribute">friends</span>" : <span class="value"><span class="number">32</span></span>,</span><br><span class="line">  					"<span class="attribute">enemies</span>" : <span class="value"><span class="number">2</span></span><br><span class="line">				</span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>可以用update来替换文档：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; var joe = db.users.findOne(&#123;<span class="string">"name"</span> : <span class="string">"joe"</span>&#125;);</span><br><span class="line">&gt; joe.relationships = &#123;<span class="string">"friends"</span> : joe.friends, <span class="string">"enemies"</span> : joe.enemies&#125;;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"friends"</span> : <span class="number">32</span>,</span><br><span class="line">  <span class="string">"enemies"</span> : <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">&gt; joe.username = joe.name;</span><br><span class="line"><span class="string">"joe"</span></span><br><span class="line">&gt; <span class="keyword">delete</span> joe.friends;</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="keyword">delete</span> joe.enemies;</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; <span class="keyword">delete</span> joe.name;</span><br><span class="line"><span class="literal">true</span></span><br><span class="line">&gt; db.users.<span class="keyword">update</span>(&#123;<span class="string">"name"</span> : <span class="string">"joe"</span>&#125;, joe);</span><br></pre></td></tr></table></figure>
+<p>常见的错误就是查询条件匹配了多个文档，然后更新的时候由于第二个参数的存在就产生重复的“_id”值。数据库会报错，不做任何修改。</p>
+<p>例如，有好几个文档都有相同的“name”，但是我们没有意识到：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.find()</span><br><span class="line">&#123;<span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : 65&#125;</span><br><span class="line">&#123;<span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : 55&#125;</span><br><span class="line">&#123;<span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>), <span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : 45&#125;</span><br></pre></td></tr></table></figure>
+<p>现在如果第二个joe过生日，要增加“age”的值，可能会这么做：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; joe = <span class="keyword">db</span>.users.findOne(&#123;<span class="string">"name"</span> : <span class="string">"joe"</span>, <span class="string">"age"</span> : <span class="string">"55"</span>&#125;);</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>),</span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"joe"</span>,</span><br><span class="line">  <span class="string">"age"</span> : 20</span><br><span class="line">&#125;</span><br><span class="line">&gt; joe.age ++;</span><br><span class="line">&gt; <span class="keyword">db</span>.users.<span class="keyword">update</span>(&#123;<span class="string">"name"</span> : <span class="string">" joe"</span>&#125;, joe);</span><br><span class="line">E11001 duplicate key <span class="keyword">on</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<p>当调用update时，数据库会查找一个与{“name” : “joe”}匹配的文档。找到的第一个是65岁的joe。然后数据库试着用变量joe中的内容替换找到文档，但是会发现集合中以经有一个具有同样的“_id”的文档。所以跟新就会失败，因为“_id”值必须唯一。为了避免这种情况，最好确保跟新总是指定唯一文档。</p>
+<h4 id="3-2-使用修改器"><a href="#3-2-使用修改器" class="headerlink" title="3.2 使用修改器"></a>3.2 使用修改器</h4><p>利用原子的更新修改器，可以只更新文档的一部分，这种更新极为高效。更新修改器是种特殊键，用来指定复杂的更新操作，比如调整、增加或删除键。例如访问URL的访问次数统计：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>),</span><br><span class="line">  <span class="string">"url"</span> : <span class="string">"www.baidu.com"</span>,</span><br><span class="line">  <span class="string">"pageviews"</span> : <span class="number">55</span></span><br><span class="line">&#125;</span><br><span class="line">&gt; db.analytics.<span class="keyword">update</span>(&#123;<span class="string">"url"</span> : <span class="string">"www.baidu.com"</span>&#125;, &#123;<span class="string">"$inc"</span> : &#123;<span class="string">"pageviews"</span> : <span class="number">1</span>&#125;&#125;)</span><br><span class="line">&gt; db.analytics.find()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"_id"</span> : ObjectId(<span class="string">"57c7a7c0c19bb8028297a356"</span>),</span><br><span class="line">  <span class="string">"url"</span> : <span class="string">"www.baidu.com"</span>,</span><br><span class="line">  <span class="string">"pageviews"</span> : <span class="number">56</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>“$set”修改器入门</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/technology/mongodb2/">
+    <time datetime="2017-04-06T05:50:31.000Z" class="entry-date">
+        2017-04-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongDB/">MongDB</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-mongodb" class="post-mongodb post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/technology/mongodb/">第一章 MongDB简介</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/mongodb/" data-id="cj15ztjl9000gsezq51otncwa" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-文档"><a href="#1-文档" class="headerlink" title="1. 文档"></a>1. 文档</h3><p>​    文档是MongDB的核心概念，多个键以及关键值有序地放置在一起便是文档。例如：</p>
+<p>​    { “greeting” : “hello,world!”, “foo” : 3}</p>
+<ul>
+<li><p>文档中的键/值对是有序的，上面的文档和下面的文档是完全不同的：</p>
+<p>{“foo” ：3 , “greeting” : “hello,world”}</p>
+</li>
+<li><p>文档中的值不仅可以是在双引号中的字符串，也可是其它几种数据类型，甚至是嵌入文档。这个例子中“greeting”的值是字符串，而“foo”的值是个整数。</p>
+</li>
+<li><p>文档的键是字符串。除了少数例外情况，键可以使用任意UTP-8字符。</p>
+<ul>
+<li>键不能包含\0(空字符)。这个字符用来表示键的结尾。</li>
+<li>.和$有特别的意义，只有在特殊环境下才能使用。</li>
+<li>以下划线“_”开头的键是保留的，虽然这个并不是严格要求。</li>
+</ul>
+</li>
+<li><p>MongDB不但区分类型，也区分大小写。</p>
+</li>
+<li><p>MongDB的文档不能有重复的键。</p>
+</li>
+</ul>
+<h3 id="2-集合"><a href="#2-集合" class="headerlink" title="2. 集合"></a>2. 集合</h3><p>​    集合就是一组文档，就如同关系型数据库中的表。集合是无模式的，这就是说一个集合里面的文档可以是各式各样的，这些文档不光是值的类型不同，它们的键也是可以完全不一样的。</p>
+<p>集合的命名：</p>
+<ul>
+<li>集合名不能是空字符串“”。</li>
+<li>集合名不能含有\0字符（空字符），这个字符表示集合名的结尾。</li>
+<li>集合名不能以“system.”开头，这是为系统集合保留的前缀。例如system.users这个集合保存着数据库的用户信息，system.namespaces集合保存着所有数据库集合的信息。</li>
+<li>集合名不能含有保留字符$。</li>
+</ul>
+<p>​    组织集合的一种惯例是使用“ . ” 字符分开的按命名空间划分的子集合。例如，一个带有博客功能的应用可能包含两个集合，分别是blog.posts和blog.authors。这样做的目的只是为了使组织结构更好些。</p>
+<h3 id="3-数据库"><a href="#3-数据库" class="headerlink" title="3. 数据库"></a>3. 数据库</h3><p>MongDB中多个文档组成集合，同样多个集合组成数据库，一个MongDB实例可以承载多个数据库，它们之间可以视为完全独立的。每个数据库都有独立的权限控制，一般将一个应用的所有数据都存在同一个数据库中。</p>
+<p>和集合一样，数据库也通过名字来标识。数据库名可以是满足以下条件的任意UTF- 8字符串：</p>
+<ul>
+<li>不能是空字符串（””）。</li>
+<li>不得含有’’（），.，$，/，\，和\0（空字符）。</li>
+<li>应全部小写。</li>
+<li>最多64字节。</li>
+</ul>
+<p>数据库名最终会变成文件系统里的文件，因此会有如此多的限制。有一些数据库名是保留的，可以直接访问这些有特殊作用的数据库，如下：</p>
+<ul>
+<li><p>admin</p>
+<p>从权限啊角度来看，这是“root”数据库。要是将一个用户添加到这个数据库，这个用户自动继承所有数据库的权限。一些特定的服务端命令也只能从这个数据库运行，比如列出所有的数据库或者关闭服务器。</p>
+</li>
+<li><p>local</p>
+<p>这个数据永远不会被复制，可以用来存储限于本地单台服务器的任意集合。</p>
+</li>
+<li><p>config</p>
+<p>当Mong用于分片设置是，config数据库在内部使用，用于保存分片的相关信息。</p>
+</li>
+</ul>
+<p>把数据库的名字放到集合名前面，这就是集合的完全限定名，称为<em>命名空间</em>。例如，如果你在cms数据库中使用blog.posts集合，那么这个集合的命名空间就是cms.blog.posts。命名空间的长度不得超过121字节，在实际使用当中应该小于100字节。</p>
+<h3 id="4-MongDB-shell"><a href="#4-MongDB-shell" class="headerlink" title="4. MongDB shell"></a>4. MongDB shell</h3><p>MongDB自带一个JavaScript shell，可以从命令行与MongDB实例交互。通过他可以执行管理操作、检查运行实例，亦或做其他尝试。</p>
+<h4 id="4-1-shell简介"><a href="#4-1-shell简介" class="headerlink" title="4.1 shell简介"></a>4.1 shell简介</h4><p>运行mongo启动shell：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo</span><br></pre></td></tr></table></figure>
+<p>shell会在启动时自动连接MongDB服务器，所以要确保在shell之前启动mongod。</p>
+<p>shell是完备的JavaScript解释器，可以运用任何JavaScript程序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; x = <span class="number">200</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line">&gt; x / <span class="number">5</span>;</span><br><span class="line"><span class="number">40</span></span><br></pre></td></tr></table></figure>
+<p>还可以充分利用JavaScript的标准库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; Math.<span class="built_in">sin</span>(Math.PI / <span class="number">2</span>);</span><br><span class="line"><span class="number">1</span></span><br><span class="line">&gt; <span class="keyword">new</span> Date(<span class="string">"2010/1/1"</span>);</span><br><span class="line"><span class="string">"Fri Jan 01 2010 00:00:00 GMT-0500 (EST)"</span></span><br><span class="line">&gt; <span class="string">"Hello, World!"</span>.replace(<span class="string">"World"</span>, <span class="string">"MongoDB"</span>);</span><br><span class="line">Hello, MongoDB</span><br></pre></td></tr></table></figure>
+<p>也可以定义和调用JavaScript函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function">function <span class="title">factorial</span> <span class="params">(n)</span> </span>&#123;</span><br><span class="line">... <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">... <span class="keyword">return</span> <span class="function">n * <span class="title">factorial</span><span class="params">(n - <span class="number">1</span>)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">&gt; fatorial(<span class="number">5</span>);</span><br><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure>
+<p>注意，可以使用多行命令。这个shell会检测输入的JavaScript语句是否写完，如没写完还可以在下一行接着写。</p>
+<h4 id="4-2-shell基本操作"><a href="#4-2-shell基本操作" class="headerlink" title="4.2 shell基本操作"></a>4.2 shell基本操作</h4><ul>
+<li><p>创建</p>
+<p>insert函数添加一个文档到集合里面。例如，假设要储存一篇博客文章。首先，创建一个局部变量post，内容是代表文档的JavaScript对象。里面会有“title”，“content”和“date（发表日期）几个键”。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; post = &#123; <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line"><span class="attribute">...</span><span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line"><span class="attribute">...</span><span class="string">"date"</span> : <span class="literal">new</span> <span class="built_in">Date</span>()&#125;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line">  <span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line">  <span class="string">"date"</span> : <span class="string">"Fri Jan 01 2010 00:00:00 GMT-0500 (EST)"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个对象是个有效的MongDB文档，所以可以用insert方法将其保存到blog集合中：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db<span class="class">.blog</span><span class="class">.insert</span>(post)</span><br></pre></td></tr></table></figure>
+<p>这篇文章已经被存到数据库里面了。</p>
+</li>
+<li><p>读取</p>
+<p>find会返回集合里面的所有的文档。若只是想查看一个文档，可以用findOne：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.<span class="keyword">blog.findOne()</span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="string">"_id"</span> : ObjectId(<span class="string">"57ad256b18bc1402149e8ea9"</span>)</span><br><span class="line">  <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line">  <span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line">  <span class="string">"date"</span> : <span class="string">"Fri Jan 01 2010 00:00:00 GMT-0500 (EST)"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>find和findOne可以接受查询文档形式的限定条件。这将通过查询限制匹配的文档。使用find时，shell自动显示最多20个匹配的文档但可以获取更多文档。</p>
+</li>
+<li><p>跟新</p>
+<p>如果要更改博客文章，就要用到update了。update接受（至少）接受两个参数：第一个是要跟新文档的限定条件，第二是新的文档。假设决定给我们先前写的文章增加内容，则需要你增加一个新的键，对应的值是存放评论的组。</p>
+<p>第一步修改变量post，增加“comments”键：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; psot.comments = <span class="string">[]</span></span><br><span class="line"><span class="string">[ ]</span></span><br></pre></td></tr></table></figure>
+<p>然后执行update操作，用新版本的文档替换标题为“My Blog Post”的文章：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="tag">db</span><span class="class">.blog</span><span class="class">.update</span>(<span class="rules">&#123;<span class="rule"><span class="attribute">title </span>:<span class="value"> <span class="string">"My Blog Post"</span></span></span></span>&#125;, <span class="tag">post</span>)</span><br></pre></td></tr></table></figure>
+<p>文档已经有了“comments”键。再用find查看一下可以看到新的键：</p>
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.blog.findOne<span class="literal">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"_id"</span> : <span class="type">ObjectId</span>(<span class="string">"57ad256b18bc1402149e8ea9"</span>)</span><br><span class="line">  <span class="string">"title"</span> : <span class="string">"My Blog Post"</span>,</span><br><span class="line">  <span class="string">"content"</span> : <span class="string">"Here is my blog post."</span>,</span><br><span class="line">  <span class="string">"date"</span> : <span class="string">"Fri Jan 01 2010 00:00:00 GMT-0500 (EST)"</span></span><br><span class="line">  <span class="string">"comments"</span> : <span class="literal">[]</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除</p>
+<p>remove用来从数据库中永久性的删除文档。在不使用参数进行调用的情况下，它会删除一个集合内的所有文档。它也可以接受一个文档以指定限定条件。例如，下面的命令会删除我们刚刚创建的文章：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.blog.<span class="keyword">remove</span>(&#123;<span class="string">"title"</span> : <span class="string">"My Blog Post"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>集合现在又是空的了。</p>
+</li>
+</ul>
+<p>shell本身内置了帮助文档，可以通过help查看命令。</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; help</span><br><span class="line">HELP</span><br><span class="line">	<span class="literal">show</span> dbs				<span class="literal">show</span> database names</span><br><span class="line">	<span class="literal">show</span> collections	     <span class="literal">show</span> collections in <span class="literal">current</span> datebase</span><br><span class="line">	<span class="literal">show</span> users				<span class="literal">show</span> users in currentdatabase</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+<p>使用db.help()可以查看数据库级别的命令的帮助，集合的相关帮助可以通过db.foo.help()来查看。在输入的时候不要输括号。这样就会显示该函数的JavaScript源代码。例如：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.foo.update</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(query, obj, upset, mulit)</span> </span>&#123;</span><br><span class="line">  assert(query, <span class="string">"need a query"</span>);</span><br><span class="line">  assert(obj, <span class="string">"need a object"</span>)</span><br><span class="line">  <span class="keyword">this</span>._validateObject(obj);</span><br><span class="line">  <span class="keyword">this</span>._mongo.update(<span class="keyword">this</span>._fullName, query, obj,</span><br><span class="line">  					upset ? <span class="literal">true</span> : <span class="literal">false</span>, multi ? <span class="literal">true</span> :<span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-数据类型"><a href="#5-数据类型" class="headerlink" title="5 数据类型"></a>5 数据类型</h3><h4 id="5-1-基本数据类型"><a href="#5-1-基本数据类型" class="headerlink" title="5.1 基本数据类型"></a>5.1 基本数据类型</h4><p>MongoDB的文档类似与JSON，在概念上和JavaScript中的对象神似。JSON是一种简单的表示数据的方式，仅包含6种数据类型。这样易于理解、易于解析、易于记忆，但是JSON的表现力也有限制，因为只有null、布尔、数字、字符串、数组和对象几种类型。下面是MongDB通常支持的一些类型：</p>
+<ul>
+<li><p>null</p>
+<p>null用于表示空值或者不存在的字段。</p>
+<p>{“x” : “null”}</p>
+</li>
+<li><p>布尔</p>
+<p>布尔类型有两个值“true”和“false”。</p>
+<p>{“x” ：“false”}</p>
+</li>
+<li><p>32位整数</p>
+<p>shell中这个类型不可用，32位整数会被自动转换为64位浮点数。</p>
+</li>
+<li><p>64位整数</p>
+<p>​shell中这个类型不可用，32位整数会被自动转换为64位浮点数。</p>
+</li>
+<li><p>634位浮点数</p>
+<p>shell中的数字类型都是这种类型。</p>
+<p>{“x” ： ”3.14“}</p>
+<p>这个也是浮点数：</p>
+<p>{“x” ： “3”}</p>
+</li>
+<li><p>字符串</p>
+<p>UTF-8字符串都可以表为字符串类型的数据。</p>
+<p>{“x” ： “zheng”}</p>
+</li>
+<li><p>符号</p>
+<p>shell不支持这种类型，shell将数据库里面的符号类型转换成字符串。</p>
+</li>
+<li><p>对象id</p>
+<p>对象id是文档的122字节的唯一ID。</p>
+<p>{“x” ： ObjectId()}</p>
+</li>
+<li><p>日期</p>
+<p>日期类型存储的是从标准纪元开始的毫秒数。不存储时区。</p>
+<p>{“x” ：new Date()}</p>
+</li>
+<li><p>正则表达式</p>
+<p>文档中可以包含正则表达式，采用JavaScript的正则表达式语法。</p>
+<p>{“x” ：”/fooobar/i}</p>
+</li>
+<li><p>代码</p>
+<p>文档中还可以包含JavaScript代码。</p>
+<p>{“x” ：function() { /<em>…</em>/}}</p>
+</li>
+<li><p>二进制数据</p>
+<p>二进制数据可以由任意字节的串组成。不过shell中无法使用。</p>
+</li>
+<li><p>最大值</p>
+<p>BSON包含一个特殊类型，表示可能的最大值。shell中没有这个类型。</p>
+</li>
+<li><p>最小值</p>
+<p>BSON包含一个特殊类型，表示可能的最小值。shell中没有这个类型。</p>
+</li>
+<li><p>未定义</p>
+<p>文档中也可以使用未定义类型。</p>
+<p>{“x” ：undefined}</p>
+</li>
+<li><p>数组</p>
+<p>值的集合或者列表可以表示成数组。</p>
+<p>{“x” ：[“a”, “b”, “c”]}</p>
+</li>
+<li><p>内嵌文档</p>
+<p>文档可以包含别的文档，也可以作为值嵌入到父文档中。</p>
+<p>{“x” : {“foo” : “bar”}}</p>
+</li>
+</ul>
+<h4 id="5-2-数字"><a href="#5-2-数字" class="headerlink" title="5.2 数字"></a>5.2 数字</h4><p>JavaScript中只有一种“数字”类型。因为Mongodb中有3种数据类型（32位整数、64位整数和64位浮点数），shell必须绕过JavaScript的限制。默认情况下，shell中的数字都被MongDB当做是双精度数。也就是你从数据库中获得的是一个32位整数，修改文档后，将文档存数据库的时候，这个整数也被转换成浮点数。</p>
+<h4 id="5-3-日期"><a href="#5-3-日期" class="headerlink" title="5.3 日期"></a>5.3 日期</h4><p>在JavaScript中，Date对象用做MongDB的日期类型，创建一个新的Date对象时，通常会调用new Date(…)，而不是Date(…）。调用构造函数（也就是说不包括new）实际上会返回对日期的字符串表示，而不是真正的Date对象。</p>
+<p>shell中的日期显示时使用本地时区设置。但是，日期在数据中是以从标准纪元开始的毫秒数的形式存储的，没有相关的时区信息。</p>
+<h4 id="5-4-数组"><a href="#5-4-数组" class="headerlink" title="5.4 数组"></a>5.4 数组</h4><p>数组是一组值，既可以作为有序对象（像列表、栈或队列）来操作，也可以作为无序对象（像集合）操作。在下面的文档中，“things”这个键的值就是一个数组：</p>
+<p>{“things” ：[“pie”, 3.14]}</p>
+<p>从这个例子可以看到，数组可以包含不同数据类型的元素。实际上，常规键/值对支持的值都可以作为数组的元素，甚至是嵌套数组。</p>
+<p>MongDB能“理解“其结构，并知道如何”深入“数组内部对其内容进行操作。这样就能用内容对数组进行查询和构建索引了，可以提高性能。MongDB可以使用原子更新修改数组内容，比如深入数组中含有3.14的文档。</p>
+<h4 id="5-5-内嵌文档"><a href="#5-5-内嵌文档" class="headerlink" title="5.5 内嵌文档"></a>5.5 内嵌文档</h4><p>内嵌文档就是把整个MongDB文档作为另一个文档中键的一个值。这样数据可以组织得更自然些，不用非得存成扁平结构的。</p>
+<p>例如，用一个文档来表示一个人，同时还要保存他的地址，可以将地址内嵌到”add-ress“文档中：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>" : <span class="value"><span class="string">"John Doe"</span></span>,</span><br><span class="line">  "<span class="attribute">address</span>" : <span class="value">&#123;</span><br><span class="line">  				"<span class="attribute">street</span>" : <span class="value"><span class="string">"123 Park Street"</span></span>,</span><br><span class="line">  				"<span class="attribute">city</span>" : <span class="value"><span class="string">"Antown"</span></span>,</span><br><span class="line">  				"<span class="attribute">state</span>" : <span class="value"><span class="string">"NY"</span></span><br><span class="line">			</span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>上面例子中“address”的值是另一个文档，这个文档有自己的“street”、“city“、和”state“键值。</p>
+<p>同数组一样，MongDB能够”理解“内嵌文档的结构，并能”深入“其中构建索引、执行查询、或者更新。</p>
+<p>内嵌文档可以改变处理数据的方式。在关系型数中，这样的文档一般会被拆分为两个表（”people“和”address“）中的两个行。在MongDB中，就可以将地址文档直接嵌入人员文档中，使用得当的话，内嵌文档会使信息表示得更加自然和高效。但是，因为MongDB会存储更多重复的数据，这样是反规范化的，如果在关系型数据库中”address“在一个独立的表中，要修复地址中的拼写错误。当我们对”people”和“address”执行连接操作时，每一个使用这个地址的人的信息都会得到更新。但是在MongDB中，则需要在每个人的文档中修正拼写错误。</p>
+<h4 id="5-6-id和ObjectId"><a href="#5-6-id和ObjectId" class="headerlink" title="5.6 _id和ObjectId"></a>5.6 _id和ObjectId</h4><p>MongDB中存储的文档必须有一个“_id”键。这个键的值可以是任何类型，默认是个ObjectId对象。在一个集合，每个文档都有唯一的” _id”值，来确保集合里面每个文档能被唯一标识。</p>
+<ul>
+<li><p>ObjectId</p>
+<p>ObjectId是“_id”的默认类型。它设计成轻量型的，不同的机器都能用全局唯一的同种方法方便的生成它。这是MOngDB采用ObjectId，而不是其他比较常规的做法（比如自动增加的主键）的主要原因，因为在多个服务器上同步自动增加主键值即费力还费时。</p>
+<p>ObjectId使用12字节的存储空间，每个字节两位十六进制数字，是一个24位的字符串。ObjectId的创建方式如下：</p>
+<p>0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 </p>
+<p>时间戳           |  机器       | PID    | 计数器</p>
+<p>————————————————————</p>
+<ul>
+<li>前4个字节是从标准纪元开始的时间戳，单位为秒。</li>
+<li>时间戳与随后的5个字节组合起来，提供了秒级别的唯一性。</li>
+<li>由于时间戳在前，这意味着ObjectId大致会按照插入都的顺序排列，将其作为索引提高效率。</li>
+<li>时间戳4个字节也隐含了文档创建时间，绝大多数驱动都会公开一个方法从ObjectId获取这个信息。</li>
+<li>接下来的3字节是所在主机的唯一标识。通常是机器主机名的散列值。这样就可以确保不同主机生成不同的ObjectId的进程标识符，不产生冲突。</li>
+<li>为了确保在同一机器上并发的多个进程产生的ObjectId是唯一的，接下来的两个字节来自产生ObjectId的进程标识符（PID）。</li>
+</ul>
+<p>前9字节保证了同一秒钟不同机器不同进程产生的ObjectId是唯一的。后3字节就是一个自动增加的计数器，确保相同进程同一秒产生的ObjectId也是不一样的。同一秒钟最多允许每个进程拥有256的3次方个不同的ObjectId。</p>
+</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/technology/mongodb/">
+    <time datetime="2017-04-06T05:50:24.000Z" class="entry-date">
+        2017-04-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongDB/">MongDB</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-Linuxcommand2" class="post-Linuxcommand2 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -75,27 +552,184 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/technology/Linuxcommand2/">Linuxcommand2</a>
+      <a class="article-title" href="/technology/Linuxcommand2/">第二章 Linux中不能不知道的概念</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand2/" data-id="cj15za70c0005nczqq02htx2g" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand2/" data-id="cj15ztjld000jsezqmhmbfelx" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Linuxcommand2</p>
+        <h2 id="1-相对路径与绝对路径"><a href="#1-相对路径与绝对路径" class="headerlink" title="1. 相对路径与绝对路径"></a>1. 相对路径与绝对路径</h2><pre><code>绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。&quot;.&quot;指的是工作目录，“..”指的是工作目录的父目录
+</code></pre><h2 id="2-文件名的重要规则"><a href="#2-文件名的重要规则" class="headerlink" title="2. 文件名的重要规则"></a>2. 文件名的重要规则</h2><ol>
+<li>以“.”字符开头的文件是隐藏文件。需要使用ls -a命令才能列出它们。</li>
+<li>文件名和命令名是大小写敏感的。文件名File和file是☞两个不同的文件。</li>
+<li>LInux没有“文件扩展名”的概念。不像其它一些系统，可以用你喜欢的名字来给文件起名。</li>
+<li>Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“,”，“-”，下划线。最好不要在文件名中使用空格。</li>
+</ol>
+<h2 id="3-选项和参数"><a href="#3-选项和参数" class="headerlink" title="3. 选项和参数"></a>3. 选项和参数</h2><pre><code>命令名经常    会带有一个或多个参数，这些参数是命令的对象。大多数命令使用的选项，是由一个中划线加上一个字符，列如，“-l”，但是许多命令也长选项，长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。比如：
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/3.png" alt="img3"><br>选一个文件，来看一下各个输出字段的含义：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drwxrwxrwx+</td>
+<td style="text-align:left">对于文件的访问权限，第一个字符指明文件类型，开头的“-”说明是一个普通文件，“d”表明是一个目录，其后三个字符是文件所有者的访问权限，再其后三个字符是其他所有人的访问权限</td>
+</tr>
+<tr>
+<td>34</td>
+<td style="text-align:left">文件的硬链接数目</td>
+</tr>
+<tr>
+<td>macbookpro</td>
+<td style="text-align:left">文件属主的用户名</td>
+</tr>
+<tr>
+<td>ftgroup</td>
+<td style="text-align:left">文件所属用户组的名字</td>
+</tr>
+<tr>
+<td>1156</td>
+<td style="text-align:left">以字节数表示文件的大小</td>
+</tr>
+<tr>
+<td>2 26 16:46</td>
+<td style="text-align:left">上次修改文件的时间与日期</td>
+</tr>
+<tr>
+<td>Downloader</td>
+<td style="text-align:left">文件名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-符号链接"><a href="#4-符号链接" class="headerlink" title="4. 符号链接"></a>4. 符号链接</h2><pre><code>在我们到处查看时，我们会看到一个目录，列出这样一条信息：
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/5.png" alt="img5"><br>       这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。<br>􏵧􏲅􏰥􏵅􏴗􏲲􏱶􏲌􏱬􏲑􏲒􏴚􏴗􏲲􏱩􏴚􏴗􏲲􏲡􏰖􏳨􏳩       还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。</p>
+<h2 id="5-通配符"><a href="#5-通配符" class="headerlink" title="5. 通配符"></a>5. 通配符</h2><pre><code>一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：
+</code></pre><table>
+<thead>
+<tr>
+<th>通配符</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:left">匹配任意多个字符(包括零个或一个)</td>
+</tr>
+<tr>
+<td>？</td>
+<td style="text-align:left">匹配任意一个字符(不包括零个)</td>
+</tr>
+<tr>
+<td>[characters]</td>
+<td style="text-align:left">匹配任意一个属于字符集中的字符</td>
+</tr>
+<tr>
+<td>[!characters]</td>
+<td style="text-align:left">匹配任意一个不是字符集中的字符</td>
+</tr>
+<tr>
+<td>[:class:]</td>
+<td style="text-align:left">匹配任意一个不属于指定字符类中的字符</td>
+</tr>
+</tbody>
+</table>
+<p>下表列出最常使用的字符类:</p>
+<table>
+<thead>
+<tr>
+<th>字符类</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td style="text-align:left">匹配任意一个字母或数字</td>
+</tr>
+<tr>
+<td>[:alpha]</td>
+<td style="text-align:left">匹配任意一个字母</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td style="text-align:left">匹配任意一个数字</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td style="text-align:left">匹配任意一个小写字母</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td style="text-align:left">匹配任意一个大写字母</td>
+</tr>
+</tbody>
+</table>
+<p>借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配范例:</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th style="text-align:left">匹配对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td style="text-align:left">所有文件</td>
+</tr>
+<tr>
+<td>g*</td>
+<td style="text-align:left">文件名以“g”开头的文件</td>
+</tr>
+<tr>
+<td>b*.txt</td>
+<td style="text-align:left">以“b”开头，中间有零个或任意多个字符，并以“.txt”结尾的文件</td>
+</tr>
+<tr>
+<td>Data???</td>
+<td style="text-align:left">以“Data开头”，其后紧接着3个字符的文件</td>
+</tr>
+<tr>
+<td>[abc]*</td>
+<td style="text-align:left">文件名以“a”，“b”，或“c”开头的文件</td>
+</tr>
+<tr>
+<td>BACKUP.[0-9][0-9][0-9]</td>
+<td style="text-align:left">以“BACkUP.”开头，并紧接着3个数字的文件</td>
+</tr>
+<tr>
+<td>[[:upper:]]*</td>
+<td style="text-align:left">以大写字母开头的文件</td>
+</tr>
+<tr>
+<td>[![:digit:]]*</td>
+<td style="text-align:left">不以数字开头的文件</td>
+</tr>
+<tr>
+<td>*[[:lower:]123]</td>
+<td style="text-align:left">文件名以小写字母结尾，或以“1”，“2”，“3”结尾的文件</td>
+</tr>
+</tbody>
+</table>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
     <a href="/technology/Linuxcommand2/">
-    <time datetime="2017-04-06T02:56:35.000Z" class="entry-date">
+    <time datetime="2017-04-06T05:50:05.000Z" class="entry-date">
         2017-04-06
     </time>
 </a>
@@ -126,27 +760,351 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/technology/Linuxcommand/">Linuxcommand</a>
+      <a class="article-title" href="/technology/Linuxcommand/">第一章 简单的命令使用</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand/" data-id="cj15za6zx0000nczq8mj31j94" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand/" data-id="cj15ztjkm0000sezqi6n5c76s" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Linux</p>
+        <h2 id="pwd-－打印出当前工作目录名"><a href="#pwd-－打印出当前工作目录名" class="headerlink" title="pwd －打印出当前工作目录名"></a>pwd －打印出当前工作目录名</h2><pre><code>我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/1.png" alt="img1"></p>
+<h2 id="cd-－更改目录"><a href="#cd-－更改目录" class="headerlink" title="cd －更改目录"></a>cd －更改目录</h2><pre><code>路径名就是沿着目录树的分支到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，另外是相对路径。首先处理绝对路径。
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">运行结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td style="text-align:left">更改工作目录到主目录</td>
+</tr>
+<tr>
+<td>cd ..</td>
+<td style="text-align:left">更改工作目录到工作目录父目录</td>
+</tr>
+<tr>
+<td>cd -</td>
+<td style="text-align:left">更改工作目录到先前的工作目录</td>
+</tr>
+<tr>
+<td>cd ~user_name</td>
+<td style="text-align:left">更改工作目录到用户主目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ls-－列出目录内容"><a href="#ls-－列出目录内容" class="headerlink" title="ls －列出目录内容"></a>ls －列出目录内容</h2><pre><code>ls命令可以列出任一个目录的内容。加上参数能得到你想要的结果哦。&lt;br/&gt;
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/2.png" alt="img2"></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–all</td>
+<td style="text-align:left">列出所以文件，包括圆点开头的隐藏文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td style="text-align:left">–directory</td>
+<td style="text-align:left">与-l结合使用，可以看到指定目录的详细信息</td>
+</tr>
+<tr>
+<td>-F</td>
+<td style="text-align:left">–classify</td>
+<td style="text-align:left">会在每个选项的名字后面加上一个指示符，比如名字是目录名就会加上“/”字符</td>
+</tr>
+<tr>
+<td>-l</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">以长格式显示结果</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–reserve</td>
+<td style="text-align:left">以相反的顺序来显示结果</td>
+</tr>
+<tr>
+<td>-S</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">命令输出结果按照文件大小来排序</td>
+</tr>
+<tr>
+<td>-t</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">按照修改时间来排序</td>
+</tr>
+</tbody>
+</table>
+<pre><code>而“-l“选项”导致ls的输出结果以长格式输出，这种格式包含大量的有用信息。例如：
+</code></pre><p><img src="http://7xr9lf.com1.z0.glb.clouddn.com/4.png" alt="img4"></p>
+<h2 id="less-filename-浏览filename文本文件内容"><a href="#less-filename-浏览filename文本文件内容" class="headerlink" title="less filename 浏览filename文本文件内容"></a>less filename 浏览filename文本文件内容</h2><pre><code>输入less /etc/passwd,一旦less程序运行起来，我就能浏览文件内容了。按下“q”键，退出less程序。下表列出了less程序最常使用的键盘命令：
+</code></pre><table>
+<thead>
+<tr>
+<th>命令</th>
+<th style="text-align:left">行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page UP or b</td>
+<td style="text-align:left">向后翻滚一页</td>
+</tr>
+<tr>
+<td>Page Down or space</td>
+<td style="text-align:left">向前翻滚一页</td>
+</tr>
+<tr>
+<td>UP Arrow</td>
+<td style="text-align:left">向前移动一行</td>
+</tr>
+<tr>
+<td>Dwon Arrow</td>
+<td style="text-align:left">向后移动一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td style="text-align:left">移动到最后一行</td>
+</tr>
+<tr>
+<td>1G or g</td>
+<td style="text-align:left">移动到开头一行</td>
+</tr>
+<tr>
+<td>/charaters</td>
+<td style="text-align:left">向前查找指定的字符串</td>
+</tr>
+<tr>
+<td>n</td>
+<td style="text-align:left">向前查找下一个出现的字符串，这个字符串是之前所指定查找的</td>
+</tr>
+<tr>
+<td>h</td>
+<td style="text-align:left">显示帮助屏幕</td>
+</tr>
+<tr>
+<td>q</td>
+<td style="text-align:left">退出less程序</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cp-复制文件与目录"><a href="#cp-复制文件与目录" class="headerlink" title="cp  -复制文件与目录"></a>cp  -复制文件与目录</h2><p>有两种使用方法，复制单个目录或文件到指定目录下，复制多个项目(文件或目录)到指定目录下。下表为cp命令的一些有用选项:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–archive</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
+</tr>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–recursive</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:left">–update</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令作信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td style="text-align:left">–archive</td>
+<td style="text-align:left">复制文件和目录，以及它们的属性，包括所有权和权限。通常，复本有用户操作<br>文件的默认属性</td>
+</tr>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>cp命令默认重写文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–recursive</td>
+<td style="text-align:left">递归的复制目录及目录中的内容。当复制目录时需<br>要这个选项(或者-a选项)</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:left">–update</td>
+<td style="text-align:left">当把文件从一个目录复制到另一个目录时，仅复制目标目录中不存在的文<br>件，或者是文件内容更新于目标目录中以存在的文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令操作信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mv-移动-重命名文件和目录"><a href="#mv-移动-重命名文件和目录" class="headerlink" title="mv -移动/重命名文件和目录"></a>mv -移动/重命名文件和目录</h2><pre><code>mv操作是移动文件和给文件重命名，而且完成该操作之后，在原来目录下的文件名将不存在。
+</code></pre><ul>
+<li>mv item1 item2<br>把文件或目录“item1”移动或重命名为“item2”。</li>
+<li>mv item… directory<br>把一个或多个目录移动到另一个目录中。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在重写以存在文件之前，提示用户确认。如果这个选项不指定，<br>mv命令默认重写文件</td>
+</tr>
+<tr>
+<td>-u</td>
+<td style="text-align:left">–update</td>
+<td style="text-align:left">当把文件从一个目录移动到另一个目录时，仅移动目标目录中不存在的文<br>件，或者是文件内容新于目标目录相对应文件的内容</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令操作作信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mv file1 file2</td>
+<td style="text-align:left">移动file1到file2。如果file2存在，它的内容会被file1重写。<br>如果file2不存在，则创建file2。每种情况下file1不存在</td>
+</tr>
+<tr>
+<td>mv -i file1 file2</td>
+<td style="text-align:left">如果file2存在的话，在file2被重写之前，用户会得到提示信息</td>
+</tr>
+<tr>
+<td>mv file1 file2 dir1</td>
+<td style="text-align:left">移动file1和file2到dir1目录，dir1目录必须存在</td>
+</tr>
+<tr>
+<td>mv dir1 dir2</td>
+<td style="text-align:left">如果目录dir2不存在，则创建目录dir2，并且移动目录dir1的内容到目录dir2目<br>录中，同时删除目录dir1。如果dir2存在，则dir1目录和内容移动到dir2目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rm-删除文件和目录"><a href="#rm-删除文件和目录" class="headerlink" title="rm -删除文件和目录"></a>rm -删除文件和目录</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:left">长选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td style="text-align:left">–interactive</td>
+<td style="text-align:left">在删除已存在文件之前，提示用户确认。如果这个选项不指定，<br>rm会默默删除文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td style="text-align:left">–recursive</td>
+<td style="text-align:left">递归删除文件，删除目录必须指定这个选项</td>
+</tr>
+<tr>
+<td>-f</td>
+<td style="text-align:left">–force</td>
+<td style="text-align:left">忽视不存在的文件，不显示提示信息。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">–verbose</td>
+<td style="text-align:left">显示翔实的命令操作信息</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rm file1</td>
+<td style="text-align:left">默默地删除文件file1</td>
+</tr>
+<tr>
+<td>rm -i file1</td>
+<td style="text-align:left">在删除文件之前，提示用户确认信息</td>
+</tr>
+<tr>
+<td>rm -r file1 dir1</td>
+<td style="text-align:left">删除文件file1和目录dir1以及dir1中的内容</td>
+</tr>
+<tr>
+<td>rm -rf dir1 dir2</td>
+<td style="text-align:left">同上，如果文件file1或dir1不存在，rm任会继续执行</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>注意：小心rm！<br>rm删除了的东西就不能复原了，在rm与通配符的使用中就要更加谨慎了。</li>
+</ul>
+<h2 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir -创建目录"></a>mkdir -创建目录</h2><pre><code>mkdir是用来创建目录的，它这样工作：mkdir directory...。注意表示法：描述一个命令时，当有三个圆点跟在一个命令的参数后面，这意味着那个参数可以重复，就像 mkdir dir1 会创建一个名为“dir1”的目录，而 mkdir dir1 dir2 dir3 会创建三个目录，名为dir1，dir2，dir3.
+</code></pre><h2 id="ln-创建硬链接和符号链接"><a href="#ln-创建硬链接和符号链接" class="headerlink" title="ln -创建硬链接和符号链接"></a>ln -创建硬链接和符号链接</h2><ul>
+<li>ln file link<br>创建硬链接</li>
+<li>ln -s item link<br>创建符号链接，“item”可以是一个文件或目录</li>
+</ul>
 
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
     <a href="/technology/Linuxcommand/">
-    <time datetime="2017-04-06T02:53:25.000Z" class="entry-date">
+    <time datetime="2017-04-06T05:49:56.000Z" class="entry-date">
         2017-04-06
     </time>
 </a>
@@ -188,11 +1146,23 @@
       <ul>
         
           <li>
-            <a href="/technology/Linuxcommand2/">Linuxcommand2</a>
+            <a href="/technology/springmvc2/">第二章 Spring MVC简介</a>
           </li>
         
           <li>
-            <a href="/technology/Linuxcommand/">Linuxcommand</a>
+            <a href="/technology/springmvc1/">第一章 Web MVC简介</a>
+          </li>
+        
+          <li>
+            <a href="/technology/mongodb2/">第二章 MongDB创建、更新及删除文档</a>
+          </li>
+        
+          <li>
+            <a href="/technology/mongodb/">第一章 MongDB简介</a>
+          </li>
+        
+          <li>
+            <a href="/technology/Linuxcommand2/">第二章 Linux中不能不知道的概念</a>
           </li>
         
       </ul>
@@ -204,7 +1174,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a>
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MongDB/" style="font-size: 10px;">MongDB</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
     </div>
   </aside>
 

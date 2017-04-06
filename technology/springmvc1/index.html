@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>第一章 Web MVC简介 | 行动的力量</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章 Web MVC简介">
+<meta property="og:url" content="http://yoursite.com/technology/springmvc1/index.html">
+<meta property="og:site_name" content="行动的力量">
+<meta property="og:description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
+<meta property="og:updated_time" content="2017-04-06T05:59:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一章 Web MVC简介">
+<meta name="twitter:description" content="1.1 Web开发中的请求-响应模型
+在web世界里，web客户端发送请求，web服务器接收，处理并产生响应
+
+
+web浏览器（如IE）发送请求
+web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。
+web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。
+
+1.2 标准MVC模型描述
+​    MVC模型：是一种架构型的模式，本身不引入新功能，只是">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="行动的力量" rel="home">行动的力量</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/technology">技术</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/article">文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/movie">电影</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/music">音乐</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-springmvc1" class="post-springmvc1 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      第一章 Web MVC简介
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/springmvc1/" data-id="cj15ztjl40009sezqhe6qdfi3" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="1-1-Web开发中的请求-响应模型"><a href="#1-1-Web开发中的请求-响应模型" class="headerlink" title="1.1 Web开发中的请求-响应模型"></a>1.1 Web开发中的请求-响应模型</h3><blockquote>
+<p><strong>在web世界里，web客户端发送请求，web服务器接收，处理并产生响应</strong></p>
+</blockquote>
+<ol>
+<li>web浏览器（如IE）发送请求</li>
+<li>web服务器（如tomcat）接收请求，处理请求（比如用户新增），最后产生响应。</li>
+<li>web服务器处理完成后，返回内容给web客户端，客户端对接收的内容进行处理。</li>
+</ol>
+<h3 id="1-2-标准MVC模型描述"><a href="#1-2-标准MVC模型描述" class="headerlink" title="1.2 标准MVC模型描述"></a>1.2 标准MVC模型描述</h3><blockquote>
+<p>​    <strong>MVC模型：是一种架构型的模式，本身不引入新功能，只是帮助我们将开发的结构组织的更加合理，使展示与模型分离，流程控制逻辑，业务逻辑调用与展示逻辑分离。</strong></p>
+</blockquote>
+<ul>
+<li><strong>Model模型：</strong>数据模型，提供展示的数据，包含数据就行，可以认为是领域模型或JavaBean组件（包含数据不合行为），不过现在一般都分离开来：Value Object（数据）和服务层（行为），也就是模型提供了模型数据查询和模型数据的状态更新的等功能，包括数据和业务。</li>
+<li><strong>View（视图）：</strong>负责进行模型的展示，一般就是我们见到的用户界面，客户想看到的东西。</li>
+</ul>
+<ul>
+<li><strong>Controller（控制器）：</strong>接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。</li>
+</ul>
+<p><strong>web开发框架的目标：</strong></p>
+<ol>
+<li>干净的web表现层；模型和视图的分离，控制器中的控制逻辑与功能处理分离（收集并封装参数到模型对象，业务对象调用）。</li>
+<li>轻薄的web表现层；做的事情越少越好，不应该包含无关代码，只负责收集并组织参数到模型对象，启动业务对象的应用；控制器只返回逻辑视图名并由相应的应用控制器来选择具体使用的视图策略；尽量少使用框架特定API，保证容易测试。</li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/technology/springmvc1/">
+    <time datetime="2017-04-06T05:50:47.000Z" class="entry-date">
+        2017-04-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/technology/">technology</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springmvc/">springmvc</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/technology/springmvc2/" rel="prev"><span class="meta-nav">←</span> 第二章 Spring MVC简介</a></span>
+    
+    
+        <span class="nav-next"><a href="/technology/mongodb2/" rel="next">第二章 MongDB创建、更新及删除文档 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/technology/springmvc2/">第二章 Spring MVC简介</a>
+          </li>
+        
+          <li>
+            <a href="/technology/springmvc1/">第一章 Web MVC简介</a>
+          </li>
+        
+          <li>
+            <a href="/technology/mongodb2/">第二章 MongDB创建、更新及删除文档</a>
+          </li>
+        
+          <li>
+            <a href="/technology/mongodb/">第一章 MongDB简介</a>
+          </li>
+        
+          <li>
+            <a href="/technology/Linuxcommand2/">第二章 Linux中不能不知道的概念</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MongDB/" style="font-size: 10px;">MongDB</a> <a href="/tags/springmvc/" style="font-size: 10px;">springmvc</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 A MAN
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
