@@ -73,7 +73,7 @@ cd -
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/1.png">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/2.png">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/4.png">
-<meta property="og:updated_time" content="2017-04-07T07:59:39.000Z">
+<meta property="og:updated_time" content="2017-04-07T08:05:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一章 简单的命令使用">
 <meta name="twitter:description" content="pwd －打印出当前工作目录名我们所在的目录成为当前工作目录，我们使用pwd（打印工作目录）命令，显示当前工作目录。
@@ -156,7 +156,7 @@ cd -
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand/" data-id="cj17jl66z0000fjzqv3laq89o" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand/" data-id="cj17jqrcp0000fyzqe63cewvt" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -512,11 +512,11 @@ cd -
 <p>info是命令程序手册页的替代物，可以通过info阅读器读取；info页是超级链接形成的，和网页很相似；每个超级链接开头有一个星号，将光标移到连接上，通过enter键激活它。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">macbookdeMacBook-<span class="constant">Pro</span><span class="symbol">:~</span> macbookpro<span class="variable">$ </span>info ls</span><br></pre></td></tr></table></figure>
 <p>info操作命令：</p>
-<p>| 命令                | 行为                      |<br>| —————– | :———————- |<br>| ？                 | 显示帮助命令                  |<br>| PgUp or Backspace | 显示上一页                   |<br>| pgDn or Space     | 显示下一页                   |<br>| n                 | 下一个-显示下一个节点             |<br>| p                 | 上一个-显示上一个节点             |<br>| u                 | Up-显示当前所显示节点的父节点，通常是个菜单 |<br>| Enter             | 激活光标位置下的超级练级            |<br>| q                 | 退出                      |</p>
+<p>| 命令                | 行为                      |<br>| :—————- | :———————- |<br>| ？                 | 显示帮助命令                  |<br>| PgUp or Backspace | 显示上一页                   |<br>| pgDn or Space     | 显示下一页                   |<br>| n                 | 下一个-显示下一个节点             |<br>| p                 | 上一个-显示上一个节点             |<br>| u                 | Up-显示当前所显示节点的父节点，通常是个菜单 |<br>| Enter             | 激活光标位置下的超级练级            |<br>| q                 | 退出                      |</p>
 <p>​</p>
 </li>
 <li><p><strong>alias</strong>    创建命令组合别名</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">macbookdeMacBook-<span class="constant">Pro</span>:~ macbookpro<span class="variable">$ </span><span class="keyword">alias</span> foo=<span class="string">'cd /usr; ls; cd -'</span></span><br><span class="line">macbookdeMacBook-<span class="constant">Pro</span>:~ macbookpro<span class="variable">$ </span>foo</span><br><span class="line"><span class="constant">X11</span>        <span class="constant">X11R6</span>      bin        <span class="keyword">include</span>    <span class="class"><span class="keyword">lib</span>        <span class="title">libexec</span>    <span class="title">local</span>      <span class="title">sbin</span>       <span class="title">share</span>      <span class="title">standalone</span></span></span><br><span class="line">/<span class="constant">Users</span>/macbookpro</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">macbookdeMacBook-<span class="constant">Pro</span>:~ macbookpro<span class="variable">$ </span><span class="keyword">alias</span> foo=<span class="string">'cd /usr; ls; cd -'</span></span><br><span class="line">macbookdeMacBook-<span class="constant">Pro</span>:~ macbookpro<span class="variable">$ </span>foo</span><br><span class="line"><span class="constant">X11</span>        <span class="constant">X11R6</span>      bin        <span class="keyword">include</span>    <span class="class"><span class="keyword">lib</span>        <span class="title">libexec</span>    <span class="title">local</span>     <span class="title">share</span>      <span class="title">standalone</span></span></span><br><span class="line">/<span class="constant">Users</span>/macbookpro</span><br></pre></td></tr></table></figure>
 <p>删除别名：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">macbookdeMacBook-<span class="constant">Pro</span><span class="symbol">:~</span> macbookpro<span class="variable">$ </span>unalias foo</span><br></pre></td></tr></table></figure>
 <p>查看所有定义在系统环境中的别名：</p>
