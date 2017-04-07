@@ -34,7 +34,7 @@ LInux没有“文件扩展名”的">
 LInux没有“文件扩展名”的">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/3.png">
 <meta property="og:image" content="http://7xr9lf.com1.z0.glb.clouddn.com/5.png">
-<meta property="og:updated_time" content="2017-04-07T06:02:10.000Z">
+<meta property="og:updated_time" content="2017-04-07T07:04:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章 Linux中不能不知道的概念">
 <meta name="twitter:description" content="1. 相对路径与绝对路径 绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。一般使用“.”(点)和“..”(点点)来表示相对位置。”.”指的是工作目录，“..”指的是工作目录的父目录
@@ -100,7 +100,7 @@ LInux没有“文件扩展名”的">
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand2/" data-id="cj17fccdf000j3szqz8s1dc0m" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/technology/Linuxcommand2/" data-id="cj17jl67t000jfjzqej67cr47" class="leave-reply bdsharebuttonbox" data-cmd="more">undefined</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -154,7 +154,7 @@ LInux没有“文件扩展名”的">
 </table>
 <h2 id="4-符号链接"><a href="#4-符号链接" class="headerlink" title="4. 符号链接"></a>4. 符号链接</h2><p>在我们到处查看时，我们会看到一个目录，列出这样一条信息：<br><img src="http://7xr9lf.com1.z0.glb.clouddn.com/5.png" alt="img5"><br>这条信息第一个字符是“1”，但是有两个文件名。这是一个特殊文件，叫做符号链接(也称为软链接或者symlink)，就是一个文件被多个文件名所指向。在这条信息中展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个叫做“libc-2.6.so”的文件共享库文件，这意味着，寻找“libs.so.6”的程序，实际上得到的是文件“libc-2.6.so”。<br>还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，但是链接以不同的方法来创建多个文件名。</p>
 <ul>
-<li><strong>硬链接：</strong> 为文件创建了额外的条目，使用时，与文件没有区别；删除时，只会删除链接，不会删除文件；但是，硬链接不能引用自身文件系统以外的问价，而且无法引用目录，只能引用文件。</li>
+<li><strong>硬链接：</strong> 为文件创建了额外的条目，使用时，与文件没有区别；删除时，只会删除链接，不会删除但是，硬链接不能引用自身文件系统以外的问价，而且无法引用目录，只能引用文件。</li>
 <li><strong>符号链接：</strong> 克服硬链接的局限性，类似于快捷方式；使用与硬链接相同，如果先删除文件，则会成为坏链接；可以引用目录。</li>
 </ul>
 <h2 id="5-通配符"><a href="#5-通配符" class="headerlink" title="5. 通配符"></a>5. 通配符</h2><p>一个使命令行如此强大的shell特性。因为shell频繁地使用文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。使用通配符(也以文件名代换著称)允许你依据字符类型来选择文件名。下表列出这些通配符以及它们所选择的对象：</p>
